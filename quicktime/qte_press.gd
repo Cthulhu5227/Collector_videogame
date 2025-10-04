@@ -49,6 +49,9 @@ func _process(_delta):
 func _on_timer_timeout():
 	qte_instance_active = false
 	input_label.bbcode_text = "[center][color=white]BOO[/color][/center]"
+	if get_parent():
+		get_parent().receive_data_from_child(false)
+		queue_free()
 	
 func _input(event):
 	if (qte_instance_active) and (event is InputEventKey) and (event.pressed) and (event.keycode == cur_input):
@@ -57,6 +60,9 @@ func _input(event):
 			timer.stop()
 			qte_instance_active = false
 			input_label.bbcode_text = "[center][color=white]YAY[/color][/center]"
+			if get_parent():
+				get_parent().receive_data_from_child(true)
+				queue_free()
 		else: 
 			cur_input = OS.find_keycode_from_string(press_input[cur_progress])
 			_update_input_label()

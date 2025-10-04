@@ -1,7 +1,5 @@
 extends Node
 
-var success = false
-
 var qte_instance_active := false
 
 var timer
@@ -38,18 +36,17 @@ func initialize(difficulty: float, input: Array, node_refs):
 	
 func _process(_delta):
 	if qte_instance_active:
-		if mash_bar.scale.x >= 1:
-			mash_bar.scale.x = 1
-			qte_instance_active = false
-			input_label.bbcode_text = "[center][color=white]YAY[/color][/center]"
-			success = true
-			if get_parent():
-				get_parent().receive_data_from_child(success)
-				queue_free()
-		
-		mash_bar.scale.x -= dec_speed
+		mash_bar.scale.x = max(0, mash_bar.scale.x - dec_speed)
 
 func _input(event):
 	var key_value := OS.find_keycode_from_string(key_name)
 	if (qte_instance_active) and (event is InputEventKey) and (event.pressed) and (event.keycode == key_value): 
-		mash_bar.scale.x += input_value
+		mash_bar.scale.x = min(1, mash_bar.scale.x + input_value)
+		if mash_bar.scale.x == 1.0 and qte_instance_active:
+			set_process_input(false)
+			qte_instance_active = false
+			input_label.bbcode_text = "[center][color=white]YAY[/color][/center]"
+			if get_parent() and not qte_instance_active:
+				get_parent().receive_data_from_child(true)
+				queue_free()
+				set_process(false)

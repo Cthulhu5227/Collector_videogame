@@ -61,6 +61,9 @@ func _process(_delta):
 func _on_timer_timeout():
 	qte_instance_active = false
 	input_label.bbcode_text = "[center][color=white]BOO[/color][/center]"
+	if get_parent():
+		get_parent().receive_data_from_child(false)
+		queue_free()
 	
 func _input(event):
 	if (qte_instance_active):
@@ -75,14 +78,17 @@ func _input(event):
 			timer.stop()
 			qte_instance_active = false
 			input_label.bbcode_text = "[center][color=white]YAY[/color][/center]"
+			if get_parent():
+				get_parent().receive_data_from_child(true)
+				queue_free()
 		
 func _update_input_label():
 	var display_str = ""
 	for i in range(nec_progress):
 		var arrow = label_map.get(match_input[i], "UNKNOWN")
 		if i < cur_progress:
-			display_str += "[color=gray]%s[/color] " % arrow 
+			display_str += "[color=gray]%s[/color]   " % arrow 
 		else:
-			display_str += "[color=white]%s[/color] " % arrow
+			display_str += "[color=white]%s[/color]   " % arrow
 
 	input_label.bbcode_text = "[center]%s[/center]" % display_str

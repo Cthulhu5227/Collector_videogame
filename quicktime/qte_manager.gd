@@ -1,13 +1,14 @@
 extends Node2D
 
 # do something with these
+var qte_inst
 var qte_active := false
 var qte_success := false
 
 func init(qte_type, qte_diff, qte_input):	
 	match qte_type:
 		"catch":
-			call_other_script("res://quicktime/qte_catch.gd", qte_diff, qte_input,[])
+			call_other_script("res://quicktime/qte_catch.gd", qte_diff, qte_input,[$Timer_Bar, $Catch_Bead, $QTE_Instr_Label, $QTE_Input_Label])
 		"match":
 			call_other_script("res://quicktime/qte_match.gd", qte_diff, qte_input, [$Timer, $Timer_Bar, $QTE_Instr_Label, $QTE_Input_Label])
 		"mash":
@@ -20,13 +21,13 @@ func init(qte_type, qte_diff, qte_input):
 
 func receive_data_from_child(data):
 	if get_parent():
-		get_parent().receive_data_from_child(data)
 		queue_free()
+		get_parent().receive_data_from_child(data)
 	return
 
 
 func call_other_script(path: String, difficulty: float, input: Array, refs: Array):
-	var qte_inst = load(path).new()
+	qte_inst = load(path).new()
 	add_child(qte_inst)
 	if qte_inst.has_method("initialize"):
 		qte_inst.initialize(difficulty, input, refs)
