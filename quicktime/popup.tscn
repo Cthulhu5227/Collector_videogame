@@ -1,0 +1,34 @@
+[gd_scene load_steps=2 format=3 uid="uid://bb2crqvhfom2h"]
+
+[ext_resource type="Script" uid="uid://2135iefg8lfn" path="res://quicktime/qte_manager.gd" id="1_sw60f"]
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource("1_sw60f")
+
+[node name="QTE_Container" type="Polygon2D" parent="."]
+color = Color(0.30479202, 6.540969e-05, 0.30671942, 1)
+polygon = PackedVector2Array(0, 0, 250, 0, 250, 75, 0, 75)
+
+[node name="QTE_Instr_Label" type="RichTextLabel" parent="."]
+offset_top = 10.0
+offset_right = 250.0
+offset_bottom = 60.0
+bbcode_enabled = true
+
+[node name="QTE_Input_Label" type="RichTextLabel" parent="."]
+offset_top = 40.0
+offset_right = 250.0
+offset_bottom = 90.0
+bbcode_enabled = true
+
+[node name="Timer" type="Timer" parent="."]
+
+[node name="Timer_Background" type="Polygon2D" parent="."]
+position = Vector2(0, 75)
+color = Color(0, 0, 0, 1)
+polygon = PackedVector2Array(0, 0, 250, 0, 250, 10, 0, 10)
+
+[node name="Timer_Bar" type="Polygon2D" parent="."]
+position = Vector2(0, 75)
+color = Color(0.7447451, 0.49448317, 0, 1)
+polygon = PackedVector2Array(0, 0, 250, 0, 250, 10, 0, 10)
