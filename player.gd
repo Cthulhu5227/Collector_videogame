@@ -9,14 +9,15 @@ func _input(event):
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT:
 		if event.pressed:
 			modulate = Color(1,0,0)
-			target = get_viewport().get_mouse_position()
+			target = get_global_mouse_position()
 			selecting = true
 		else:
 			selecting = false
-			Color(1,1,1)
+			
+			modulate = Color(1,1,1)	
 			target = null
 	elif event is InputEventMouseMotion and selecting:
-		target = get_viewport().get_mouse_position()
+		target = get_global_mouse_position()
 		
 	elif event.is_action_pressed("interact"):
 		for bed in get_tree().get_nodes_in_group("bed"):
