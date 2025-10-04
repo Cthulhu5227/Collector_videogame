@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://b1wobbwoqomn6"]
+[gd_scene load_steps=8 format=3 uid="uid://b1wobbwoqomn6"]
 
 [ext_resource type="Script" uid="uid://h5gvvejyycn7" path="res://ui.gd" id="1_fyqef"]
 [ext_resource type="Script" uid="uid://c15j6bq2i7nrk" path="res://pause_menu.gd" id="2_m6e0p"]
@@ -6,6 +6,9 @@
 [ext_resource type="Texture2D" uid="uid://d4lasqjwyn2xn" path="res://assets/quit_test.png" id="3_nltto"]
 [ext_resource type="Texture2D" uid="uid://c5kahe2avqb5h" path="res://assets/quit_hover_test.png" id="4_ibotj"]
 [ext_resource type="Texture2D" uid="uid://ds2m3c7vdb50n" path="res://assets/teeth_counter_test.png" id="6_n5ude"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_n5ude"]
+font_size = 50
 
 [node name="ui" type="CanvasLayer"]
 script = ExtResource("1_fyqef")
@@ -44,3 +47,4 @@ offset_top = 2.0
 offset_right = 214.0
 offset_bottom = 55.0
 text = "0"
+label_settings = SubResource("LabelSettings_n5ude")
