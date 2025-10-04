@@ -78,7 +78,6 @@ func _input(event):
 		print(bar_end_x)
 		if bead_pos >= bar_start_x and bead_pos <= bar_end_x:
 			qte_instance_active = false
-			input_label.bbcode_text = "[center][color=white]YAY[/color][/center]"
 			if get_parent():
 				get_parent().receive_data_from_child(true)
 				queue_free()

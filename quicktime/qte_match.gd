@@ -43,6 +43,7 @@ func initialize(duration: float, input: Array, node_refs):
 	# set up values
 	match_input = input
 	nec_progress = input.size()
+	cur_input = input_map.get(match_input[cur_progress], Key.KEY_SPACE)
 	
 	# Start QTE
 	instruction_label.bbcode_text = "[center][color=white]Match![/color][/center]"
@@ -53,31 +54,31 @@ func initialize(duration: float, input: Array, node_refs):
 	
 func _process(_delta):
 	if qte_instance_active:
-		cur_input = input_map.get(match_input[cur_progress], Key.KEY_SPACE)
 		var remaining_time = timer.time_left
 		var scale: float = remaining_time / total_duration
 		timer_bar.scale.x = scale
 	
 func _on_timer_timeout():
-	qte_instance_active = false
-	input_label.bbcode_text = "[center][color=white]BOO[/color][/center]"
-	if get_parent():
-		get_parent().receive_data_from_child(false)
-		queue_free()
-	
+	if qte_instance_active:
+		cur_progress = 0
+		cur_input = input_map.get(match_input[cur_progress], Key.KEY_SPACE)
+		_update_input_label()
+		timer.start()
+
 func _input(event):
+	cur_input = input_map.get(match_input[cur_progress], Key.KEY_SPACE)
 	if (qte_instance_active):
 		if (event is InputEventKey and event.pressed):
 			if (event.keycode == cur_input): 
 				cur_progress += 1
 			else: 
+				timer.start() # maybe dont have timer reset as a further punishment for getting it wrong
 				cur_progress = 0
 			_update_input_label()
 		
 		if (cur_progress >= nec_progress):
 			timer.stop()
 			qte_instance_active = false
-			input_label.bbcode_text = "[center][color=white]YAY[/color][/center]"
 			if get_parent():
 				get_parent().receive_data_from_child(true)
 				queue_free()

@@ -45,7 +45,6 @@ func _input(event):
 		if mash_bar.scale.x == 1.0 and qte_instance_active:
 			set_process_input(false)
 			qte_instance_active = false
-			input_label.bbcode_text = "[center][color=white]YAY[/color][/center]"
 			if get_parent() and not qte_instance_active:
 				get_parent().receive_data_from_child(true)
 				queue_free()

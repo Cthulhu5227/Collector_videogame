@@ -25,7 +25,8 @@ func receive_data_from_child(data):
 		get_parent().receive_data_from_child(data)
 	return
 
-
+# notes: see internal points for specific QTEs
+# may also need to turn difficulty into an array to handle special modifiers for mash and catch
 func call_other_script(path: String, difficulty: float, input: Array, refs: Array):
 	qte_inst = load(path).new()
 	add_child(qte_inst)
