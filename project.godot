@@ -19,6 +19,10 @@ config/icon="res://icon.svg"
 
 Inventory="*res://inventory.gd"
 
+[global_group]
+
+player="player"
+
 [rendering]
 
 renderer/rendering_method="gl_compatibility"

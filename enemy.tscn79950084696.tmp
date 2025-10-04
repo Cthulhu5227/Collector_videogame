@@ -1,8 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://dhxxy4paeggpd"]
+[gd_scene load_steps=4 format=3 uid="uid://dhxxy4paeggpd"]
 
 [ext_resource type="Script" uid="uid://bg8lihd326sh2" path="res://enemy.gd" id="1_ak6rt"]
 [ext_resource type="Texture2D" uid="uid://bth8t2jkmw6fi" path="res://icon.svg" id="1_ik04e"]
-[ext_resource type="Script" uid="uid://dg8lpe7nt5e2d" path="res://sus_meter.gd" id="4_iifgy"]
 [ext_resource type="Script" uid="uid://buct0r8oeak0t" path="res://vision_cone.gd" id="6_3yqyl"]
 
 [node name="enemy" type="PathFollow2D"]
@@ -27,14 +26,3 @@ position = Vector2(267.65, 0)
 scale = Vector2(20.000008, 15.000004)
 color = Color(0.13333334, 1, 1, 0.5529412)
 polygon = PackedVector2Array(-13.482, 0, 15.917495, -15.866664, 15.967494, 15.733331)
-
-[node name="sus_meter" type="ProgressBar" parent="."]
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = 1.0
-offset_top = -100.0
-offset_right = 5.0
-offset_bottom = -73.0
-grow_horizontal = 2
-script = ExtResource("4_iifgy")
