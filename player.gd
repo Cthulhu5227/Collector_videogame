@@ -1,6 +1,6 @@
 extends CharacterBody2D
 var  STOP_THRESHOLD = 0.0
-var SPEED = 100
+var SPEED = 150
 var target = null
 var selecting = false
 var interact_range = 50
