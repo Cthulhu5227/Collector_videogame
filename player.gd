@@ -17,7 +17,7 @@ var box_ref = null
 
 
 func _input(event):
-	if cripple and (event.is_action_pressed("interact") or (event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT)):
+	if cripple and event.is_action_pressed("interact"): #or (event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT)):
 		visible = true
 		cripple = false
 		box_ref = null
@@ -40,6 +40,7 @@ func _input(event):
 		for bed in get_tree().get_nodes_in_group("bed"):
 			if global_position.distance_to(bed.global_position) < interact_range: 
 				bed.interact()
+				cripple = true
 				return
 		for box in get_tree().get_nodes_in_group("box"):
 			if global_position.distance_to(box.global_position) < interact_range: 
@@ -49,7 +50,7 @@ func _input(event):
 				return
 
 func _physics_process(delta):
-	if target != null and position.distance_to(target) > STOP_THRESHOLD:
+	if target != null and position.distance_to(target) > STOP_THRESHOLD and not cripple:
 		velocity = position.direction_to(target) * SPEED
 	else:
 		velocity = Vector2.ZERO
@@ -67,11 +68,9 @@ func _physics_process(delta):
 			if global_position.distance_to(box.global_position) < interact_range: 
 				tutorial.visible = true 
 				break
-			tutorial.visible = false 
-	if not cripple:
-		move_and_collide(velocity * delta)
-		
-
+			tutorial.visible = false
+			 
+	move_and_collide(velocity * delta)
 	$AnimationPlayer.play("oscilate")
 
 

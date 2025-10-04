@@ -39,10 +39,10 @@ texture = ExtResource("11_j5v2v")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="."]
 layout_mode = 0
-offset_left = 359.0
-offset_top = 339.0
-offset_right = 751.0
-offset_bottom = 403.0
+offset_left = 398.0
+offset_top = 276.0
+offset_right = 790.0
+offset_bottom = 340.0
 
 [node name="play_button" type="TextureButton" parent="HBoxContainer"]
 layout_mode = 2

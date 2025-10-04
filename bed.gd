@@ -15,6 +15,8 @@ func receive_data_from_child(data):
 	if success:
 		Inventory.find_teeth()
 		Ui.update_teeth_counter()
+		get_tree().get_nodes_in_group("player")[0].cripple = false
+
 	
 
 func interact():

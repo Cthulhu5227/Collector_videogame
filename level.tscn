@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=4 uid="uid://ds8e8mtvwpxcv"]
+[gd_scene load_steps=8 format=4 uid="uid://ds8e8mtvwpxcv"]
 
 [ext_resource type="PackedScene" uid="uid://dwsk6befvaf0a" path="res://player.tscn" id="1_vonw3"]
 [ext_resource type="PackedScene" uid="uid://dhxxy4paeggpd" path="res://parent.tscn" id="2_oi3di"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://c3th6ihcugi4r" path="res://basic_room.tscn" id="5_1ainy"]
 [ext_resource type="PackedScene" uid="uid://henuxxm7oxlp" path="res://camera_2d.tscn" id="5_f2txt"]
 [ext_resource type="PackedScene" uid="uid://ffxtod7tc6mj" path="res://box.tscn" id="6_1ainy"]
+[ext_resource type="PackedScene" uid="uid://doyg3xf8tfm1n" path="res://window.tscn" id="7_n6hdu"]
 
 [node name="Level" type="Node2D"]
 
@@ -24,3 +25,6 @@ tile_map_data = PackedByteArray("AADR/+X/AAAAAAMAAADR/+b/AAAAAAMAAADR/+f/AAAAAAM
 
 [node name="box" parent="." instance=ExtResource("6_1ainy")]
 position = Vector2(396, 156)
+
+[node name="window" parent="." instance=ExtResource("7_n6hdu")]
+position = Vector2(627, 82)
