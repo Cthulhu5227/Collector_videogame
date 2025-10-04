@@ -9,23 +9,6 @@ var qte_active := false
 var qte_success := false
 
 func _ready():	
-	# practise input
-	qte_type = "press"
-	qte_diff = 3
-	qte_input = ["T", "E", "E", "T", "H"]
-	
-	"""
-	qte_type = "mash"
-	qte_diff = 0.02
-	qte_input = ["SPACE"]
-	"""
-	
-	"""
-	qte_type = "match"
-	qte_diff = 6
-	qte_input = ["U", "D", "D", "L", "R"]
-	"""
-	
 	match qte_type:
 		"catch":
 			call_other_script("res://quicktime/qte_catch.gd", qte_diff, qte_input,[])
