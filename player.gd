@@ -3,6 +3,7 @@ var  STOP_THRESHOLD = 0.0
 var SPEED = 100
 var target = null
 var selecting = false
+var interact_range = 1000
 
 func _input(event):
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT:
@@ -12,13 +13,22 @@ func _input(event):
 			selecting = true
 		else:
 			selecting = false
+			Color(1,1,1)
 			target = null
 	elif event is InputEventMouseMotion and selecting:
 		target = get_viewport().get_mouse_position()
+		
+	elif event.is_action_pressed("interact"):
+		for bed in get_tree().get_nodes_in_group("bed"):
+			if global_position.distance_to(bed.global_position) < interact_range: 
+				bed.interact()
+	
 func _physics_process(delta):
 	
 	if target != null and position.distance_to(target) > STOP_THRESHOLD:
 		velocity = position.direction_to(target) * SPEED
+	else:
+		velocity = Vector2.ZERO
 	
 	move_and_collide(velocity * delta)
 		
