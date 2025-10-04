@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://caw1gaxetecgm"]
 
-[ext_resource type="Script" uid="uid://bx2dcjstcjns0" path="res://enemy.gd" id="1_22pik"]
+[ext_resource type="Script" uid="uid://bx2dcjstcjns0" path="res://enemy_path.gd" id="1_22pik"]
 
 [sub_resource type="Curve2D" id="Curve2D_22pik"]
 _data = {
