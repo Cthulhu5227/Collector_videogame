@@ -18,6 +18,7 @@ config/icon="res://assets/icon.svg"
 [autoload]
 
 Inventory="*res://inventory.gd"
+Ui="*res://ui.tscn"
 
 [input]
 

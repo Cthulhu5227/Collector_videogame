@@ -3,7 +3,7 @@ var  STOP_THRESHOLD = 0.0
 var SPEED = 100
 var target = null
 var selecting = false
-var interact_range = 1000
+var interact_range = 50
 
 func _input(event):
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT:
