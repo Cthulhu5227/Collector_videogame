@@ -1,14 +1,10 @@
 extends Node2D
 
-var qte_type: String # "catch", "match", "mash", "press"
-var qte_diff: float # difficulty
-var qte_input: Array # []
-
 # do something with these
 var qte_active := false
 var qte_success := false
 
-func _ready():	
+func init(qte_type, qte_diff, qte_input):	
 	match qte_type:
 		"catch":
 			call_other_script("res://quicktime/qte_catch.gd", qte_diff, qte_input,[])
@@ -21,10 +17,20 @@ func _ready():
 		_:
 			print("Warning:", qte_type, "is not an accepted QTE")
 
+
+func receive_data_from_child(data):
+	if get_parent():
+		get_parent().receive_data_from_child(data)
+		queue_free()
+	return
+
+
 func call_other_script(path: String, difficulty: float, input: Array, refs: Array):
 	var qte_inst = load(path).new()
 	add_child(qte_inst)
 	if qte_inst.has_method("initialize"):
 		qte_inst.initialize(difficulty, input, refs)
+		
 	else:
 		print("Warning: Script", path, "has no 'initialize' method")
+		return false

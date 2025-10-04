@@ -1,5 +1,7 @@
 extends Node
 
+var success = false
+
 var qte_instance_active := false
 
 var timer
@@ -10,6 +12,8 @@ var input_label
 # timer bar stuff
 var dec_speed := 0.0
 var input_value := 0.0
+
+var going 
 
 # input key
 var key_name
@@ -38,6 +42,10 @@ func _process(_delta):
 			mash_bar.scale.x = 1
 			qte_instance_active = false
 			input_label.bbcode_text = "[center][color=white]YAY[/color][/center]"
+			success = true
+			if get_parent():
+				get_parent().receive_data_from_child(success)
+				queue_free()
 		
 		mash_bar.scale.x -= dec_speed
 
