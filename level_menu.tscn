@@ -1,0 +1,73 @@
+[gd_scene load_steps=8 format=3 uid="uid://vwwap5brwk8m"]
+
+[ext_resource type="Script" uid="uid://emsltq2jrsih" path="res://level_menu.gd" id="1_lnidy"]
+[ext_resource type="Texture2D" uid="uid://cri34ib356pr2" path="res://assets/tiles_test.png" id="1_mcy63"]
+[ext_resource type="Texture2D" uid="uid://d4lasqjwyn2xn" path="res://assets/quit_test.png" id="2_w32vy"]
+[ext_resource type="Texture2D" uid="uid://c5kahe2avqb5h" path="res://assets/quit_hover_test.png" id="3_gd4f1"]
+[ext_resource type="Script" uid="uid://bslujryosl65c" path="res://quit_button.gd" id="4_7blhc"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_y1rhc"]
+font_size = 50
+
+[sub_resource type="LabelSettings" id="LabelSettings_wj7nf"]
+font_size = 50
+
+[node name="level_menu" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_left = -29.0
+offset_top = 12.0
+offset_right = 11.0
+offset_bottom = 52.0
+script = ExtResource("1_lnidy")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 107.0
+offset_top = 7.0
+offset_right = 155.0
+offset_bottom = 30.0
+text = "Levels"
+label_settings = SubResource("LabelSettings_y1rhc")
+
+[node name="quit_button" type="TextureButton" parent="."]
+layout_mode = 0
+offset_left = 525.0
+offset_top = 469.0
+offset_right = 653.0
+offset_bottom = 533.0
+texture_normal = ExtResource("2_w32vy")
+texture_hover = ExtResource("3_gd4f1")
+script = ExtResource("4_7blhc")
+
+[node name="background" type="TextureRect" parent="."]
+z_index = -1
+layout_mode = 0
+offset_left = 30.0
+offset_top = -12.0
+offset_right = 1183.0
+offset_bottom = 636.0
+texture = ExtResource("1_mcy63")
+
+[node name="level_container" type="HFlowContainer" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="level_button" type="Control" parent="."]
+anchors_preset = 0
+offset_left = 2397.2148
+offset_top = 64.39343
+offset_right = 2437.2148
+offset_bottom = 104.39343
+
+[node name="TextureButton" type="TextureButton" parent="level_button"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Label" type="Label" parent="level_button"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+label_settings = SubResource("LabelSettings_wj7nf")
