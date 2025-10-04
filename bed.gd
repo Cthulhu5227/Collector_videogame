@@ -24,9 +24,9 @@ func interact():
 	make_quicktime()
 
 func make_quicktime():
-	qte_type = 'mash'
-	qte_diff = 0.1
-	qte_input = ["SPACE"]
+	qte_type = 'press'
+	qte_diff = 2
+	qte_input = ["U", "D", "L"]
 	var qte_instance = quicktime_event.instantiate()
 	add_child(qte_instance)
 	qte_instance.init(qte_type, qte_diff, qte_input)
