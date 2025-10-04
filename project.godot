@@ -20,6 +20,12 @@ config/icon="res://assets/icon.svg"
 Inventory="*res://inventory.gd"
 Ui="*res://ui.tscn"
 
+[global_group]
+
+box="box"
+bed="bed"
+player="player"
+
 [input]
 
 guide={
