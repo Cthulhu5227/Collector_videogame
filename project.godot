@@ -25,6 +25,10 @@ box="box"
 bed="bed"
 player="player"
 
+[gui]
+
+theme/custom_font="uid://citnwa8ou36ea"
+
 [input]
 
 guide={
