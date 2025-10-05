@@ -12,3 +12,14 @@ func _input(event):
 
 func update_teeth_counter():
 	teeth_counter.text = str(Inventory.teeth)
+
+func end_level():
+	var n = $end_menu
+	Engine.time_scale = 0
+	n.visible = true	
+	
+func end_level_end():
+	var n = $end_menu
+	Engine.time_scale = 1
+	n.visible = false
+	Ui.visible = false

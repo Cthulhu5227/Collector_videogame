@@ -2,13 +2,13 @@
 
 [ext_resource type="Texture2D" uid="uid://bdjkb2g2hs0ws" path="res://assets/play_test.png" id="1_8qtwp"]
 [ext_resource type="Texture2D" uid="uid://jdgfcuenow48" path="res://assets/play_hover_test.png" id="2_dy7ct"]
-[ext_resource type="Script" path="res://play_button.gd" id="3_0o4t1"]
+[ext_resource type="Script" uid="uid://l2woama34ovk" path="res://play_button.gd" id="3_0o4t1"]
 [ext_resource type="Texture2D" uid="uid://d28xhsply6db8" path="res://assets/settings_test.png" id="4_0k4wn"]
 [ext_resource type="Texture2D" uid="uid://uregulaewks2" path="res://assets/settings_hover_test.png" id="5_j5v2v"]
-[ext_resource type="Script" path="res://settings_button.gd" id="6_dy7ct"]
+[ext_resource type="Script" uid="uid://bcnm34cpkcwl" path="res://settings_button.gd" id="6_dy7ct"]
 [ext_resource type="Texture2D" uid="uid://d4lasqjwyn2xn" path="res://assets/quit_test.png" id="6_iotk1"]
 [ext_resource type="Texture2D" uid="uid://c5kahe2avqb5h" path="res://assets/quit_hover_test.png" id="7_w44g7"]
-[ext_resource type="Script" path="res://quit_button.gd" id="8_cm266"]
+[ext_resource type="Script" uid="uid://bslujryosl65c" path="res://quit_button.gd" id="8_cm266"]
 [ext_resource type="Texture2D" uid="uid://cri34ib356pr2" path="res://assets/tiles_test.png" id="10_0k4wn"]
 [ext_resource type="Texture2D" uid="uid://d05rtt2fhtkah" path="res://assets/title_card_test.png" id="11_j5v2v"]
 

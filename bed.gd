@@ -20,9 +20,7 @@ func receive_data_from_child(data):
 		modulate = Color(0.5,0.5,0.5)
 	else:
 		used = false
-
-	
-
+		
 func interact():
 	if not used:
 		used = true

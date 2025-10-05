@@ -18,6 +18,7 @@ var box_ref = null
 func _ready():
 	Ui.get_node("music_player").play_song("Jett - Upbeat.mp3")
 	Ui.get_node("audio_control").play_sound(0)
+	Ui.visible = true
 
 func _input(event):
 	if cripple and event.is_action_pressed("interact"): #or (event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT)):
