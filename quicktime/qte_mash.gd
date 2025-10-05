@@ -15,8 +15,13 @@ var going
 
 # input key
 var key_name
+var capital_letters = [
+	"A", "B", "C", "D", "F", "G", "H", "I", "J", "K", "L", "M",
+	"N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"
+]
 
-func initialize(difficulty: float, input: Array, node_refs):	
+func initialize(difficulty: float, node_refs):	
+	var input = get_parent().get_random_subset(capital_letters, 1)
 	# get qte elements
 	mash_bar = node_refs[0]
 	instruction_label = node_refs[1]

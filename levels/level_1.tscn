@@ -1,10 +1,11 @@
-[gd_scene load_steps=7 format=4 uid="uid://bbao5ut5yflua"]
+[gd_scene load_steps=8 format=4 uid="uid://bbao5ut5yflua"]
 
-[ext_resource type="PackedScene" path="res://camera_2d.tscn" id="1_n46q3"]
+[ext_resource type="PackedScene" uid="uid://henuxxm7oxlp" path="res://camera_2d.tscn" id="1_n46q3"]
 [ext_resource type="PackedScene" uid="uid://dwsk6befvaf0a" path="res://player.tscn" id="2_btoec"]
 [ext_resource type="PackedScene" uid="uid://dhxxy4paeggpd" path="res://enemy.tscn" id="3_gwceb"]
-[ext_resource type="PackedScene" path="res://bed.tscn" id="4_l53as"]
-[ext_resource type="PackedScene" path="res://basic_room.tscn" id="5_3sk1a"]
+[ext_resource type="PackedScene" uid="uid://dbqx4kfoya38a" path="res://bed.tscn" id="4_l53as"]
+[ext_resource type="PackedScene" uid="uid://c3th6ihcugi4r" path="res://basic_room.tscn" id="5_3sk1a"]
+[ext_resource type="PackedScene" uid="uid://doyg3xf8tfm1n" path="res://window.tscn" id="6_btoec"]
 
 [sub_resource type="Curve2D" id="Curve2D_n46q3"]
 _data = {
@@ -30,3 +31,6 @@ curve = SubResource("Curve2D_n46q3")
 [node name="enemy" parent="Path2D" instance=ExtResource("3_gwceb")]
 position = Vector2(-33, 239)
 rotation = 0.010238551
+
+[node name="window" parent="." instance=ExtResource("6_btoec")]
+position = Vector2(-108, -11)

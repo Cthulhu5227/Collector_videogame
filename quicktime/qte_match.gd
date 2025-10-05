@@ -28,7 +28,10 @@ var input_map = {
 	"R": Key.KEY_RIGHT
 }
 
-func initialize(duration: float, input: Array, node_refs):	
+var inputs_possible = ["U", "D", "L", "R"]
+
+func initialize(duration: int , node_refs):	
+	var input = get_parent().get_random_subset(inputs_possible, duration)
 	# get qte elements
 	timer = node_refs[0]
 	timer_bar = node_refs[1]

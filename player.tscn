@@ -1,7 +1,7 @@
 [gd_scene load_steps=9 format=3 uid="uid://dwsk6befvaf0a"]
 
 [ext_resource type="Script" uid="uid://brc1e7osnia4v" path="res://player.gd" id="1_4flbx"]
-[ext_resource type="PackedScene" path="res://camera_2d.tscn" id="2_i3pqv"]
+[ext_resource type="PackedScene" uid="uid://henuxxm7oxlp" path="res://camera_2d.tscn" id="2_i3pqv"]
 [ext_resource type="Texture2D" uid="uid://b3c28bphmw51n" path="res://assets/fairy_test.png" id="2_onrkg"]
 [ext_resource type="PackedScene" uid="uid://by5wwuxaugt0n" path="res://lightfx/player_light.tscn" id="4_hqtel"]
 

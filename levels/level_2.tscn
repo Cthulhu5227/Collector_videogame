@@ -1,20 +1,24 @@
-[gd_scene load_steps=7 format=4 uid="uid://bqnjb55odv1g0"]
+[gd_scene load_steps=9 format=4 uid="uid://bqnjb55odv1g0"]
 
 [ext_resource type="PackedScene" uid="uid://henuxxm7oxlp" path="res://camera_2d.tscn" id="1_5722l"]
 [ext_resource type="PackedScene" uid="uid://dwsk6befvaf0a" path="res://player.tscn" id="2_ilhis"]
-[ext_resource type="PackedScene" uid="uid://dhxxy4paeggpd" path="res://parent.tscn" id="3_ep78u"]
+[ext_resource type="PackedScene" uid="uid://dhxxy4paeggpd" path="res://enemy.tscn" id="3_ep78u"]
 [ext_resource type="PackedScene" uid="uid://dbqx4kfoya38a" path="res://bed.tscn" id="4_dfjjl"]
 [ext_resource type="PackedScene" uid="uid://c3th6ihcugi4r" path="res://basic_room.tscn" id="5_at1ld"]
 [ext_resource type="PackedScene" uid="uid://ffxtod7tc6mj" path="res://box.tscn" id="6_ilhis"]
+[ext_resource type="PackedScene" uid="uid://doyg3xf8tfm1n" path="res://window.tscn" id="7_ep78u"]
+
+[sub_resource type="Curve2D" id="Curve2D_ilhis"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 464.18176, 23.545425)
+}
+point_count = 1
 
 [node name="Level" type="Node2D"]
 
 [node name="Camera2D" parent="." instance=ExtResource("1_5722l")]
 
 [node name="player" parent="." instance=ExtResource("2_ilhis")]
-
-[node name="parent" parent="." instance=ExtResource("3_ep78u")]
-position = Vector2(0, 4)
 
 [node name="bed" parent="." instance=ExtResource("4_dfjjl")]
 position = Vector2(563, 317)
@@ -24,3 +28,14 @@ tile_map_data = PackedByteArray("AAD4//r/AAAAAAAAAAD4//v/AAAAAAAAAAD4//z/AAAAAAA
 
 [node name="box" parent="." instance=ExtResource("6_ilhis")]
 position = Vector2(299, 135)
+
+[node name="Path2D" type="Path2D" parent="."]
+position = Vector2(-22.181763, 218.45457)
+curve = SubResource("Curve2D_ilhis")
+
+[node name="parent" parent="Path2D" instance=ExtResource("3_ep78u")]
+position = Vector2(464.18176, 23.545425)
+rotation = -2.4168932
+
+[node name="window" parent="." instance=ExtResource("7_ep78u")]
+position = Vector2(-107, -17)

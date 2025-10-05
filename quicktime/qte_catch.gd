@@ -22,7 +22,14 @@ var press_input
 var bead_speed := 0.0
 var speed_constant := 50.0
 
-func initialize(difficulty: float, input: Array, node_refs):	
+var capital_letters = [
+	"A", "B", "C", "D", "F", "G", "H", "I", "J", "K", "L", "M",
+	"N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"
+]
+
+
+func initialize(difficulty: float, node_refs):	
+	var input = get_parent().get_random_subset(capital_letters, 1)
 	# get qte elements
 	catch_bar = node_refs[0]
 	catch_bead = node_refs[1]
