@@ -17,6 +17,7 @@ var box_ref = null
 
 func _ready():
 	Ui.get_node("audio_control").play_sound(1)
+	Ui.get_node("music_player").play_song("Jett - Upbeat.mp3")
 
 
 func _input(event):
@@ -28,7 +29,6 @@ func _input(event):
 		find_closest_box().leave_box()
 	elif event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT:
 		if event.pressed:
-			modulate = Color(1,0,0)
 			target = get_global_mouse_position()
 			velocity = position.direction_to(target) * SPEED
 			selecting = true
