@@ -24,7 +24,6 @@ func receive_data_from_child(data):
 func interact():
 	if not used:
 		used = true
-		await get_tree().create_timer(0.5).timeout
 		Ui.get_node("audio_control").play_sound(1)
 		make_quicktime()
 	return
