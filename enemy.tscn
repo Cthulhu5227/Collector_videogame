@@ -1,0 +1,41 @@
+[gd_scene load_steps=5 format=3 uid="uid://dhxxy4paeggpd"]
+
+[ext_resource type="Script" uid="uid://bg8lihd326sh2" path="res://enemy.gd" id="1_ak6rt"]
+[ext_resource type="Texture2D" uid="uid://k58d5f4c6t1a" path="res://assets/icon.png" id="2_iifgy"]
+[ext_resource type="Script" uid="uid://dg8lpe7nt5e2d" path="res://sus_meter.gd" id="4_iifgy"]
+[ext_resource type="Script" uid="uid://buct0r8oeak0t" path="res://vision_cone.gd" id="6_3yqyl"]
+
+[node name="enemy" type="PathFollow2D"]
+script = ExtResource("1_ak6rt")
+speed = 0.4
+metadata/_edit_vertical_guides_ = [-3860.0]
+
+[node name="enemy_sprite" type="Sprite2D" parent="."]
+texture = ExtResource("2_iifgy")
+
+[node name="vision_cone" type="Area2D" parent="."]
+collision_layer = 2
+script = ExtResource("6_3yqyl")
+
+[node name="enemy_sight" type="CollisionPolygon2D" parent="vision_cone"]
+position = Vector2(267.65, 0)
+scale = Vector2(20.000008, 15.000004)
+polygon = PackedVector2Array(-13.482, 0, 15.917495, -15.866664, 15.967494, 15.733331)
+
+[node name="cone" type="Polygon2D" parent="vision_cone"]
+position = Vector2(267.65, 0)
+scale = Vector2(20.000008, 15.000004)
+color = Color(0.13333334, 1, 1, 0.5529412)
+polygon = PackedVector2Array(-13.482, 0, 15.917495, -15.866664, 15.967494, 15.733331)
+
+[node name="sus_meter" type="ProgressBar" parent="."]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = 1.0
+offset_top = -100.0
+offset_right = 5.0
+offset_bottom = -73.0
+grow_horizontal = 2
+size_flags_horizontal = 4
+script = ExtResource("4_iifgy")
