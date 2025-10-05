@@ -3,7 +3,7 @@ class_name Enemy
 
 @onready var vision_cone = get_node("vision_cone")
 @onready var enemy_sprite = get_node("enemy_sprite")
-@onready var player = $player
+@onready var player = get_node("../../player")
 
 @export var speed = 0.3
 
@@ -64,8 +64,8 @@ func _bounce_movement(delta):
 func _detecting_player(delta):
 	
 	# Match the vision cone to the enemy's rotation
-	#vision_cone.rotation = rotate
-	#enemy_sprite.rotation = 
+	vision_cone.rotate(vision_cone.get_angle_to(player.global_position))
+	enemy_sprite.rotate(enemy_sprite.get_angle_to(player.global_position))
 	
 	if sus_meter > SUS_METER_MAX:
 		pass
