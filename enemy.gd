@@ -25,7 +25,15 @@ var SUS_METER_MAX := 100.0
 var tracking_player := false
 var STARTING_PROGRESS = 0.11
 
+var MIN_PROGRESS_RATIO := 0.05
+var MAX_PROGRESS_RATIO := 0.95
+
+var sprite_prev_direction : float
+var cone_prev_direction : float 
+
 func _ready():
+	progress_ratio = 0.05
+	
 	vision_cone.connect("player_spotted", _player_spotted)
 	vision_cone.connect("player_left", _player_left)
 	
@@ -39,12 +47,19 @@ func _process(delta):
 		_bounce_movement(delta)
 	elif tracking_player && sus_meter >= 0.0:
 		_detecting_player(delta)
-	elif tracking_player && sus_meter == 0.0:
+	elif !tracking_player:
 		_losing_suspicion(delta)
 	
 
+# If first time tracking the player in a given sequence,
+# save cone and sprite rotation
 func _player_spotted():
-	tracking_player = true
+	if !tracking_player && sus_meter > 0.0:
+		tracking_player = true
+	elif !tracking_player && sus_meter == 0.0:
+		cone_prev_direction = vision_cone.rotation
+		sprite_prev_direction = enemy_sprite.rotation
+		tracking_player = true
 
 func _player_left():
 	tracking_player = false
@@ -59,7 +74,8 @@ func _bounce_movement(delta):
 			progress_ratio += speed / 10
 			remaining_time = 0.0
 		return
-	elif progress_ratio >= 0.99 || progress_ratio <= 0.01:
+		
+	elif progress_ratio >= MAX_PROGRESS_RATIO || progress_ratio <= MIN_PROGRESS_RATIO:
 		speed *= -1
 		remaining_time = time_to_wait
 		
@@ -70,8 +86,14 @@ func _bounce_movement(delta):
 func _detecting_player(delta):
 	
 	# Match the vision cone to the enemy's rotation
-	vision_cone.rotate((vision_cone.get_angle_to(player.global_position)*0.01))
+	
+	# Below semi works
+	vision_cone.rotate(vision_cone.get_angle_to(player.global_position)*0.01)
 	enemy_sprite.rotate(enemy_sprite.get_angle_to(player.global_position)*0.01)
+	
+	#vision_cone.LookAt(player.global_position)
+	#enemy_sprite.LookAt(player.global_position)
+	
 	
 	if sus_meter > SUS_METER_MAX:
 		pass
@@ -83,8 +105,10 @@ func _detecting_player(delta):
 
 func _losing_suspicion(delta):
 	sus_meter -= SUS_RATE * delta
-	if sus_meter < 0.0:
+	if sus_meter <= 0.0:
 		# Rotatation reset
+		vision_cone.rotation = cone_prev_direction
+		enemy_sprite.rotation = sprite_prev_direction
 		sus_meter = 0.0 
 		
 	
