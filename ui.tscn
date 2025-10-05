@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://b1wobbwoqomn6"]
+[gd_scene load_steps=10 format=3 uid="uid://b1wobbwoqomn6"]
 
 [ext_resource type="Script" uid="uid://h5gvvejyycn7" path="res://ui.gd" id="1_fyqef"]
 [ext_resource type="Script" uid="uid://c15j6bq2i7nrk" path="res://pause_menu.gd" id="2_m6e0p"]
@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://c5kahe2avqb5h" path="res://assets/quit_hover_test.png" id="4_ibotj"]
 [ext_resource type="Texture2D" uid="uid://ds2m3c7vdb50n" path="res://assets/teeth_counter_test.png" id="6_n5ude"]
 [ext_resource type="PackedScene" uid="uid://22f118a2rwec" path="res://audio_control.tscn" id="7_y4yjw"]
+[ext_resource type="Script" uid="uid://u727i38mquow" path="res://music_player.gd" id="8_waa4j"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_n5ude"]
 font_size = 50
@@ -51,3 +52,7 @@ text = "0"
 label_settings = SubResource("LabelSettings_n5ude")
 
 [node name="audio_control" parent="." instance=ExtResource("7_y4yjw")]
+volume_db = -40.073
+
+[node name="music_player" type="AudioStreamPlayer" parent="."]
+script = ExtResource("8_waa4j")

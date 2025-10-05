@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://dg8c3uqd07k3o"
+path="res://.godot/imported/Jett - Upbeat.mp3-ad0bda7fe4e4527c079dbcce7beefe30.mp3str"
+
+[deps]
+
+source_file="res://sound_effects/Jett - Upbeat.mp3"
+dest_files=["res://.godot/imported/Jett - Upbeat.mp3-ad0bda7fe4e4527c079dbcce7beefe30.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
