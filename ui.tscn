@@ -1,0 +1,50 @@
+[gd_scene load_steps=8 format=3 uid="uid://b1wobbwoqomn6"]
+
+[ext_resource type="Script" uid="uid://h5gvvejyycn7" path="res://ui.gd" id="1_fyqef"]
+[ext_resource type="Script" uid="uid://c15j6bq2i7nrk" path="res://pause_menu.gd" id="2_m6e0p"]
+[ext_resource type="Script" uid="uid://bslujryosl65c" path="res://quit_button.gd" id="3_27fn8"]
+[ext_resource type="Texture2D" uid="uid://d4lasqjwyn2xn" path="res://assets/quit_test.png" id="3_nltto"]
+[ext_resource type="Texture2D" uid="uid://c5kahe2avqb5h" path="res://assets/quit_hover_test.png" id="4_ibotj"]
+[ext_resource type="Texture2D" uid="uid://ds2m3c7vdb50n" path="res://assets/teeth_counter_test.png" id="6_n5ude"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_n5ude"]
+font_size = 50
+
+[node name="ui" type="CanvasLayer"]
+script = ExtResource("1_fyqef")
+
+[node name="pause_menu" type="Control" parent="."]
+visible = false
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("2_m6e0p")
+
+[node name="quit_button" type="TextureButton" parent="pause_menu"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture_normal = ExtResource("3_nltto")
+texture_hover = ExtResource("4_ibotj")
+script = ExtResource("3_27fn8")
+
+[node name="teeth_counter" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 103.0
+offset_right = 143.0
+offset_bottom = 40.0
+
+[node name="Sprite2D" type="Sprite2D" parent="teeth_counter"]
+position = Vector2(64, 31)
+texture = ExtResource("6_n5ude")
+
+[node name="Label" type="Label" parent="teeth_counter"]
+layout_mode = 0
+offset_left = 123.0
+offset_top = 2.0
+offset_right = 214.0
+offset_bottom = 55.0
+text = "0"
+label_settings = SubResource("LabelSettings_n5ude")

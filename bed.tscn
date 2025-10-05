@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://dbqx4kfoya38a"]
+
+[ext_resource type="Script" uid="uid://djsj712y1f6d1" path="res://bed.gd" id="1_c32mu"]
+[ext_resource type="Texture2D" uid="uid://cvtrq40kwginr" path="res://assets/bed_test.png" id="2_2rykw"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gtpq8"]
+size = Vector2(30, 54)
+
+[node name="bed" type="StaticBody2D" groups=["bed"]]
+script = ExtResource("1_c32mu")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -3)
+shape = SubResource("RectangleShape2D_gtpq8")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_2rykw")

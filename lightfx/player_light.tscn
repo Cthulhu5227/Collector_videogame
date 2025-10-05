@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://by5wwuxaugt0n"]
+
+[sub_resource type="Gradient" id="Gradient_c64el"]
+offsets = PackedFloat32Array(0, 0.66)
+colors = PackedColorArray(0.96714157, 0.8217066, 0.4754116, 0.75000006, 0.086104214, 0.086104214, 0.086104214, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_w8h53"]
+gradient = SubResource("Gradient_c64el")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+metadata/_snap_count = 2
+
+[node name="PointLight2D" type="PointLight2D"]
+texture = SubResource("GradientTexture2D_w8h53")
+texture_scale = 5.0
