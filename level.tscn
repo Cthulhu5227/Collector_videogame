@@ -1,33 +1,3 @@
-[gd_scene load_steps=5 format=3 uid="uid://ds8e8mtvwpxcv"]
-
-[ext_resource type="PackedScene" uid="uid://dhxxy4paeggpd" path="res://enemy.tscn" id="1_u52ul"]
-[ext_resource type="Texture2D" uid="uid://bth8t2jkmw6fi" path="res://icon.svg" id="2_vonw3"]
-
-[sub_resource type="Curve2D" id="Curve2D_u52ul"]
-_data = {
-"points": PackedVector2Array(0, 0, 0, 0, 152, 107, 0, 0, 0, 0, 941, 106, 0, 0, 0, 0, 791, 396)
-}
-point_count = 3
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_u52ul"]
+[gd_scene format=3 uid="uid://ds8e8mtvwpxcv"]
 
 [node name="Level" type="Node2D"]
-
-[node name="Path2D" type="Path2D" parent="."]
-curve = SubResource("Curve2D_u52ul")
-
-[node name="enemy" parent="Path2D" instance=ExtResource("1_u52ul")]
-position = Vector2(251.99951, 106.87325)
-rotation = -0.0012674266
-progress = 100.0
-
-[node name="player" type="CharacterBody2D" parent="." groups=["player"]]
-position = Vector2(544, 408)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="player"]
-position = Vector2(1, 0)
-scale = Vector2(6, 6)
-shape = SubResource("CircleShape2D_u52ul")
-
-[node name="Sprite2D" type="Sprite2D" parent="player"]
-texture = ExtResource("2_vonw3")

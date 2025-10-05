@@ -1,8 +1,6 @@
 extends Area2D
 class_name VisionCone
 
-#@onready var player := get_node("../../player")
-
 @onready var enemy := get_node("../enemy_sprite")
 var player_in_vision := false
 

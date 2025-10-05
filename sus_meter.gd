@@ -6,8 +6,6 @@ extends ProgressBar
 func _onready():
 	# update progress bar settings here
 	pass
-	
-	
 
 func _process(delta):
 	value = owner.sus_meter

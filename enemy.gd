@@ -8,8 +8,9 @@ class_name Enemy
 @export var speed = 0.3
 
 # Wait time until the enemy turns around and continues on their path
-@export var time_to_wait = 3.0
+@export var time_to_wait = 1.0
 var remaining_time := 0.0
+
 @export var sus_meter := 0.0
 var SUS_RATE := 30.0
 var SUS_METER_MAX := 100.0
@@ -17,9 +18,7 @@ var SUS_METER_MAX := 100.0
 var tracking_player := false
 var STARTING_PROGRESS = 0.11
 
-
 func _ready():
-	#progress = STARTING_PROGRESS
 	vision_cone.connect("player_spotted", _player_spotted)
 	vision_cone.connect("player_left", _player_left)
 	
