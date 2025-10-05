@@ -3,11 +3,11 @@ var player_ref = null
 var player_in_box = false
 
 func interact():
-	$Sprite2D.texture = preload("res://assets/full_box_test.png")
+	$Sprite2D.texture = preload("res://assets/sprites/box/closed_box.png")
 
 
 func leave_box():
-	$Sprite2D.texture = preload("res://assets/empty_box_test.png")
+	$Sprite2D.texture = preload("res://assets/sprites/box/empty_box.png")
 
 
 func _input(event):
