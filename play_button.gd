@@ -9,3 +9,7 @@ func _on_pressed() -> void:
 
 func _on_settings_button_pressed() -> void:
 	pass # open settings
+
+
+func _ready():
+	Ui.get_node("audio_control").play_sound(2)
