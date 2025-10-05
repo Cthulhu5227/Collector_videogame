@@ -1,9 +1,11 @@
-[gd_scene load_steps=9 format=3 uid="uid://dwsk6befvaf0a"]
+[gd_scene load_steps=12 format=3 uid="uid://dwsk6befvaf0a"]
 
 [ext_resource type="Script" uid="uid://brc1e7osnia4v" path="res://player.gd" id="1_4flbx"]
 [ext_resource type="PackedScene" uid="uid://henuxxm7oxlp" path="res://camera_2d.tscn" id="2_i3pqv"]
-[ext_resource type="Texture2D" uid="uid://b3c28bphmw51n" path="res://assets/fairy_test.png" id="2_onrkg"]
+[ext_resource type="Texture2D" uid="uid://buhtsvkuhm3qt" path="res://assets/sprites/fairy/fairymain.png" id="3_1jxqw"]
+[ext_resource type="Texture2D" uid="uid://cyoglr6lq7ock" path="res://assets/sprites/fairy/fairy1.png" id="4_dw050"]
 [ext_resource type="PackedScene" uid="uid://by5wwuxaugt0n" path="res://lightfx/player_light.tscn" id="4_hqtel"]
+[ext_resource type="Texture2D" uid="uid://ohphellralsa" path="res://assets/sprites/fairy/fairy2.png" id="5_b26j0"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_onrkg"]
 
@@ -12,7 +14,7 @@ length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:position")
+tracks/0/path = NodePath("PointLight2D:offset")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -24,14 +26,14 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("PointLight2D:offset")
+tracks/1/path = NodePath("AnimatedSprite2D:offset")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
+"times": PackedFloat32Array(),
+"transitions": PackedFloat32Array(),
 "update": 0,
-"values": [Vector2(0, 0)]
+"values": []
 }
 
 [sub_resource type="Animation" id="Animation_i3pqv"]
@@ -40,8 +42,8 @@ length = 2.0
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:position")
-tracks/0/interp = 2
+tracks/0/path = NodePath("PointLight2D:offset")
+tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
 "times": PackedFloat32Array(0, 1, 2),
@@ -52,7 +54,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("PointLight2D:offset")
+tracks/1/path = NodePath("AnimatedSprite2D:offset")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -68,13 +70,32 @@ _data = {
 &"oscilate": SubResource("Animation_i3pqv")
 }
 
+[sub_resource type="SpriteFrames" id="SpriteFrames_n7ghd"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_1jxqw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_dw050")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_1jxqw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_b26j0")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
 [node name="player" type="CharacterBody2D" groups=["player"]]
 script = ExtResource("1_4flbx")
 
 [node name="Camera2D" parent="." instance=ExtResource("2_i3pqv")]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, 5)
 shape = SubResource("CircleShape2D_onrkg")
 
 [node name="prompt" type="Label" parent="."]
@@ -89,8 +110,10 @@ libraries = {
 &"": SubResource("AnimationLibrary_sweqy")
 }
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("2_onrkg")
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(-0.99999994, -1.9999999)
+scale = Vector2(0.175, 0.175)
+sprite_frames = SubResource("SpriteFrames_n7ghd")
 offset = Vector2(0, 10)
 
 [node name="PointLight2D" parent="." instance=ExtResource("4_hqtel")]

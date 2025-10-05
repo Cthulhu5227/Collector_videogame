@@ -17,6 +17,7 @@ var box_ref = null
 var in_box = false
 
 func _ready():
+	$AnimatedSprite2D.play()
 	Ui.get_node("music_player").play_song("Jett - Upbeat.mp3")
 	Ui.get_node("audio_control").play_sound(0)
 	Ui.visible = true
