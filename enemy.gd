@@ -1,6 +1,13 @@
 extends PathFollow2D
 class_name Enemy
 
+## How to use the Enemy class
+# Place a Path2D Node in the world and add enemy node as a child node
+# to set paths for the enemy to patrol
+# To create a stationary enemy just add the enemy node into the scene with
+# a Path2D node
+
+
 @onready var vision_cone = get_node("vision_cone")
 @onready var enemy_sprite = get_node("enemy_sprite")
 @onready var player = get_node("../../player")
