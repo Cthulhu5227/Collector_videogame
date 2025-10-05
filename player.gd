@@ -3,7 +3,7 @@ var  STOP_THRESHOLD = 0.0
 var SPEED = 150
 var target = null
 var selecting = false
-var interact_range = 50
+var interact_range = 100
 
 @onready var tutorial = $prompt
 

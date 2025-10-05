@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b3c28bphmw51n"
-path="res://.godot/imported/fairy_test.png-585eb6d77512523b11bddc7529008c0b.ctex"
+uid="uid://djdfi2ckvb4d2"
+path="res://.godot/imported/bed1.png-84f4f4f3a4e35ff8d1ce4a416df6ef8f.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/fairy_test.png"
-dest_files=["res://.godot/imported/fairy_test.png-585eb6d77512523b11bddc7529008c0b.ctex"]
+source_file="res://assets/sprites/bed/bed1.png"
+dest_files=["res://.godot/imported/bed1.png-84f4f4f3a4e35ff8d1ce4a416df6ef8f.ctex"]
 
 [params]
 
