@@ -25,7 +25,7 @@ func _input(event):
 		visible = true
 		cripple = false
 		box_ref = null
-		
+		$CollisionShape2D.disabled = false # cant be ssen in box
 		find_closest_box().leave_box()
 	elif event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT:
 		if event.pressed:
@@ -35,7 +35,6 @@ func _input(event):
 		else:
 			selecting = false
 			velocity = Vector2.ZERO
-			modulate = Color(1,1,1)	
 			target = null
 			
 	elif event is InputEventMouseMotion and selecting:
@@ -53,6 +52,7 @@ func _input(event):
 				box.interact()
 				visible = false
 				cripple = true
+				$CollisionShape2D.disabled = true
 				return
 
 func _physics_process(delta):
