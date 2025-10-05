@@ -16,9 +16,8 @@ var cripple = false
 var box_ref = null
 
 func _ready():
-	Ui.get_node("audio_control").play_sound(1)
 	Ui.get_node("music_player").play_song("Jett - Upbeat.mp3")
-
+	Ui.get_node("audio_control").play_sound(0)
 
 func _input(event):
 	if cripple and event.is_action_pressed("interact"): #or (event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT)):
@@ -50,6 +49,7 @@ func _input(event):
 		for box in get_tree().get_nodes_in_group("box"):
 			if global_position.distance_to(box.global_position) < interact_range: 
 				box.interact()
+				Ui.get_node("audio_control").play_sound(3)
 				visible = false
 				cripple = true
 				$CollisionShape2D.disabled = true
