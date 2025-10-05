@@ -93,14 +93,6 @@ func _detecting_player(delta):
 	# Match the vision cone to the enemy's rotation
 	
 	# Rotate to face player
-	#vision_cone.rotate(vision_cone.get_angle_to(player.global_position)*0.01)
-	#enemy_sprite.rotate(enemy_sprite.get_angle_to(player.global_position)*0.01)
-	#if progress_ratio_speed > 0:
-		#rotate(get_angle_to(player.global_position)*0.01)
-	#else:
-		#rotation += ()rotation_speed*delta #rotate((get_angle_to(player.global_position) + PI)*0.01)
-	#look_at(player.global_position)
-	
 	
 	var direction = player.global_position - global_position
 	var target_angle = direction.angle()
