@@ -1,6 +1,6 @@
 extends Node2D
 
-# do something with these
+# centre the popup too, still play around with the design
 var qte_inst
 var qte_active := false
 var qte_success := false

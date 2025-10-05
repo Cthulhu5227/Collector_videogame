@@ -10,17 +10,30 @@ script = ExtResource("1_sw60f")
 color = Color(0.30479202, 6.540969e-05, 0.30671942, 1)
 polygon = PackedVector2Array(0, 0, 250, 0, 250, 75, 0, 75)
 
+[node name="Input_Container" type="Polygon2D" parent="."]
+color = Color(0.17677216, 0.1377666, 0.17677216, 1)
+offset = Vector2(170, 5)
+polygon = PackedVector2Array(0, 0, 0, 65, 65, 65, 65, 0)
+
 [node name="QTE_Instr_Label" type="RichTextLabel" parent="."]
-offset_top = 10.0
-offset_right = 250.0
-offset_bottom = 60.0
+offset_left = 5.0
+offset_top = 5.0
+offset_right = 155.0
+offset_bottom = 70.0
+theme_override_font_sizes/normal_font_size = 38
 bbcode_enabled = true
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="QTE_Input_Label" type="RichTextLabel" parent="."]
-offset_top = 40.0
-offset_right = 250.0
-offset_bottom = 90.0
+offset_left = 170.0
+offset_top = 5.0
+offset_right = 235.0
+offset_bottom = 70.0
+theme_override_font_sizes/normal_font_size = 46
 bbcode_enabled = true
+horizontal_alignment = 2
+vertical_alignment = 1
 
 [node name="Timer" type="Timer" parent="."]
 
