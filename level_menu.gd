@@ -7,9 +7,12 @@ func _ready():
 	for level in range(number_of_levels):
 		var level_scene = load_level(level+1)
 		var clone = level_button.duplicate()
-		var function_access = func load_level(): get_tree().change_scene_to_file(level_scene)
+		var function_access = func load_level(): 
+			get_tree().change_scene_to_file(level_scene)
+			Ui.visible = true
 		clone.connect("pressed", function_access)
 		clone.visible = true
+		clone.get_node("Label").text = "level %d" % (level+1)
 		level_container.add_child(clone)
 		
 

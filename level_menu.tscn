@@ -59,10 +59,16 @@ offset_right = 385.99994
 offset_bottom = 59.0
 
 [node name="level_button" type="TextureButton" parent="."]
-visible = false
 layout_mode = 0
 offset_left = 1930.7861
 offset_top = 172.01703
 offset_right = 1994.7861
 offset_bottom = 236.01703
 texture_normal = ExtResource("6_w32vy")
+
+[node name="Label" type="Label" parent="level_button"]
+layout_mode = 0
+offset_left = 11.213867
+offset_top = 64.98297
+offset_right = 51.213867
+offset_bottom = 87.98297
