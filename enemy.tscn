@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://dhxxy4paeggpd"]
 
 [ext_resource type="Script" uid="uid://bg8lihd326sh2" path="res://enemy.gd" id="1_ak6rt"]
-[ext_resource type="Texture2D" uid="uid://bth8t2jkmw6fi" path="res://icon.svg" id="1_ik04e"]
+[ext_resource type="Texture2D" uid="uid://k58d5f4c6t1a" path="res://assets/icon.png" id="2_iifgy"]
 [ext_resource type="Script" uid="uid://dg8lpe7nt5e2d" path="res://sus_meter.gd" id="4_iifgy"]
 [ext_resource type="Script" uid="uid://buct0r8oeak0t" path="res://vision_cone.gd" id="6_3yqyl"]
 
@@ -11,7 +11,7 @@ speed = 0.4
 metadata/_edit_vertical_guides_ = [-3860.0]
 
 [node name="enemy_sprite" type="Sprite2D" parent="."]
-texture = ExtResource("1_ik04e")
+texture = ExtResource("2_iifgy")
 
 [node name="vision_cone" type="Area2D" parent="."]
 collision_layer = 2
