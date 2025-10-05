@@ -1,13 +1,19 @@
-[gd_scene load_steps=9 format=4 uid="uid://ds8e8mtvwpxcv"]
+[gd_scene load_steps=10 format=4 uid="uid://ds8e8mtvwpxcv"]
 
 [ext_resource type="PackedScene" uid="uid://bcks5aa6qr3t0" path="res://lightfx/dimness.tscn" id="1_km5ld"]
 [ext_resource type="PackedScene" uid="uid://dwsk6befvaf0a" path="res://player.tscn" id="1_vonw3"]
-[ext_resource type="PackedScene" uid="uid://dhxxy4paeggpd" path="res://parent.tscn" id="2_oi3di"]
-[ext_resource type="PackedScene" path="res://bed.tscn" id="3_oi3di"]
-[ext_resource type="PackedScene" path="res://basic_room.tscn" id="5_1ainy"]
-[ext_resource type="PackedScene" path="res://camera_2d.tscn" id="5_f2txt"]
-[ext_resource type="PackedScene" path="res://box.tscn" id="6_1ainy"]
-[ext_resource type="PackedScene" path="res://window.tscn" id="7_n6hdu"]
+[ext_resource type="PackedScene" uid="uid://dhxxy4paeggpd" path="res://enemy.tscn" id="2_oi3di"]
+[ext_resource type="PackedScene" uid="uid://dbqx4kfoya38a" path="res://bed.tscn" id="3_oi3di"]
+[ext_resource type="PackedScene" uid="uid://c3th6ihcugi4r" path="res://basic_room.tscn" id="5_1ainy"]
+[ext_resource type="PackedScene" uid="uid://henuxxm7oxlp" path="res://camera_2d.tscn" id="5_f2txt"]
+[ext_resource type="PackedScene" uid="uid://ffxtod7tc6mj" path="res://box.tscn" id="6_1ainy"]
+[ext_resource type="PackedScene" uid="uid://doyg3xf8tfm1n" path="res://window.tscn" id="7_n6hdu"]
+
+[sub_resource type="Curve2D" id="Curve2D_km5ld"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, -675, 217, 0, 0, 0, 0, 214, 245)
+}
+point_count = 2
 
 [node name="Level" type="Node2D"]
 
@@ -17,9 +23,6 @@ color = Color(0.5847179, 0.5847179, 0.6651851, 1)
 [node name="Camera2D" parent="." instance=ExtResource("5_f2txt")]
 
 [node name="player" parent="." instance=ExtResource("1_vonw3")]
-
-[node name="parent" parent="." instance=ExtResource("2_oi3di")]
-position = Vector2(0, 4)
 
 [node name="bed" parent="." instance=ExtResource("3_oi3di")]
 position = Vector2(400, 300)
@@ -32,3 +35,10 @@ position = Vector2(396, 156)
 
 [node name="window" parent="." instance=ExtResource("7_n6hdu")]
 position = Vector2(627, 82)
+
+[node name="Path2D" type="Path2D" parent="."]
+curve = SubResource("Curve2D_km5ld")
+
+[node name="enemy" parent="Path2D" instance=ExtResource("2_oi3di")]
+position = Vector2(-675, 217)
+rotation = 0.031485654

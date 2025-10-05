@@ -56,8 +56,8 @@ func _bounce_movement(delta):
 		if remaining_time <= 0.0:
 			vision_cone.rotate(PI)
 			enemy_sprite.rotate(PI)
-			progress_ratio += speed / 100
-			
+			progress_ratio += speed / 10
+			remaining_time = 0.0
 		return
 	elif progress_ratio >= 0.99 || progress_ratio <= 0.01:
 		speed *= -1
@@ -70,8 +70,8 @@ func _bounce_movement(delta):
 func _detecting_player(delta):
 	
 	# Match the vision cone to the enemy's rotation
-	vision_cone.rotate(vision_cone.get_angle_to(player.global_position))
-	enemy_sprite.rotate(enemy_sprite.get_angle_to(player.global_position))
+	vision_cone.rotate((vision_cone.get_angle_to(player.global_position)*0.01))
+	enemy_sprite.rotate(enemy_sprite.get_angle_to(player.global_position)*0.01)
 	
 	if sus_meter > SUS_METER_MAX:
 		pass
