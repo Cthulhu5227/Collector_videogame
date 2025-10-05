@@ -30,14 +30,17 @@ func _input(event):
 		if event.pressed:
 			modulate = Color(1,0,0)
 			target = get_global_mouse_position()
+			velocity = position.direction_to(target) * SPEED
 			selecting = true
 		else:
 			selecting = false
-			
+			velocity = Vector2.ZERO
 			modulate = Color(1,1,1)	
 			target = null
+			
 	elif event is InputEventMouseMotion and selecting:
 		target = get_global_mouse_position()
+		velocity = position.direction_to(target) * SPEED
 	
 	elif event.is_action_pressed("interact"):
 		for bed in get_tree().get_nodes_in_group("bed"):
@@ -53,12 +56,6 @@ func _input(event):
 				return
 
 func _physics_process(delta):
-	if target != null and position.distance_to(target) > STOP_THRESHOLD and not cripple:
-		velocity = position.direction_to(target) * SPEED
-	else:
-		velocity = Vector2.ZERO
-
-
 ## check for boxes and such 
 	for bed in get_tree().get_nodes_in_group("bed"):
 			if global_position.distance_to(bed.global_position) < interact_range: 
