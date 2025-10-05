@@ -15,6 +15,9 @@ var osc_time = 4.0
 var cripple = false
 var box_ref = null
 
+func _ready():
+	Ui.get_node("audio_control").play_sound(1)
+
 
 func _input(event):
 	if cripple and event.is_action_pressed("interact"): #or (event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT)):

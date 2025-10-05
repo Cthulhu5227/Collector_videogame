@@ -1,0 +1,8 @@
+[gd_scene load_steps=3 format=3 uid="uid://22f118a2rwec"]
+
+[ext_resource type="AudioStream" uid="uid://jqa0y6jsc8wh" path="res://sound_effects/Jett Schreiber - discovery(3).mp3" id="1_b62gw"]
+[ext_resource type="Script" uid="uid://brk5eun5323vs" path="res://audio_control.gd" id="2_4ubyr"]
+
+[node name="audio_control" type="AudioStreamPlayer"]
+stream = ExtResource("1_b62gw")
+script = ExtResource("2_4ubyr")
