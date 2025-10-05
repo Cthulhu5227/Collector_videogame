@@ -12,14 +12,16 @@ class_name Enemy
 @onready var enemy_sprite = get_node("enemy_sprite")
 @onready var player = get_node("../../player")
 
-@export var speed = 0.3
+var progress_ratio_speed := 0.3
+var enemy_speed := 5
+var rotation_speed := 0.5
 
 # Wait time until the enemy turns around and continues on their path
 @export var time_to_wait = 1.0
 var remaining_time := 0.0
 
 @export var sus_meter := 0.0
-var SUS_RATE := 30.0
+var SUS_RATE := 50
 var SUS_METER_MAX := 100.0
 
 var tracking_player := false
@@ -28,11 +30,14 @@ var STARTING_PROGRESS = 0.11
 var MIN_PROGRESS_RATIO := 0.05
 var MAX_PROGRESS_RATIO := 0.95
 
-var sprite_prev_direction : float
-var cone_prev_direction : float 
+
+var prev_enemy_direction : float
+
+var prev_enemy_pos : Vector2
+
 
 func _ready():
-	progress_ratio = 0.05
+	progress_ratio = MIN_PROGRESS_RATIO
 	
 	vision_cone.connect("player_spotted", _player_spotted)
 	vision_cone.connect("player_left", _player_left)
@@ -57,8 +62,8 @@ func _player_spotted():
 	if !tracking_player && sus_meter > 0.0:
 		tracking_player = true
 	elif !tracking_player && sus_meter == 0.0:
-		cone_prev_direction = vision_cone.rotation
-		sprite_prev_direction = enemy_sprite.rotation
+		prev_enemy_direction = rotation
+		prev_enemy_pos = global_position
 		tracking_player = true
 
 func _player_left():
@@ -71,29 +76,41 @@ func _bounce_movement(delta):
 		if remaining_time <= 0.0:
 			vision_cone.rotate(PI)
 			enemy_sprite.rotate(PI)
-			progress_ratio += speed / 10
+			progress_ratio += progress_ratio_speed / 10
 			remaining_time = 0.0
 		return
 		
 	elif progress_ratio >= MAX_PROGRESS_RATIO || progress_ratio <= MIN_PROGRESS_RATIO:
-		speed *= -1
+		progress_ratio_speed *= -1
 		remaining_time = time_to_wait
 		
 	else:
-		progress_ratio += delta*speed
+		progress_ratio += delta*progress_ratio_speed
 	
 
 func _detecting_player(delta):
 	
 	# Match the vision cone to the enemy's rotation
 	
-	# Below semi works
-	vision_cone.rotate(vision_cone.get_angle_to(player.global_position)*0.01)
-	enemy_sprite.rotate(enemy_sprite.get_angle_to(player.global_position)*0.01)
+	# Rotate to face player
+	#vision_cone.rotate(vision_cone.get_angle_to(player.global_position)*0.01)
+	#enemy_sprite.rotate(enemy_sprite.get_angle_to(player.global_position)*0.01)
+	#if progress_ratio_speed > 0:
+		#rotate(get_angle_to(player.global_position)*0.01)
+	#else:
+		#rotation += ()rotation_speed*delta #rotate((get_angle_to(player.global_position) + PI)*0.01)
+	#look_at(player.global_position)
 	
-	#vision_cone.LookAt(player.global_position)
-	#enemy_sprite.LookAt(player.global_position)
 	
+	var direction = player.global_position - global_position
+	var target_angle = direction.angle()
+	if progress_ratio_speed < 0:
+		target_angle += PI
+	
+	rotation = lerp_angle(rotation, target_angle, delta * rotation_speed)	
+	
+	# Move towards player
+	global_position += (player.global_position - global_position).normalized() * enemy_speed * delta
 	
 	if sus_meter > SUS_METER_MAX:
 		pass
@@ -101,14 +118,14 @@ func _detecting_player(delta):
 		# End game
 	else:
 		sus_meter += SUS_RATE * delta
-	
 
 func _losing_suspicion(delta):
 	sus_meter -= SUS_RATE * delta
 	if sus_meter <= 0.0:
-		# Rotatation reset
-		vision_cone.rotation = cone_prev_direction
-		enemy_sprite.rotation = sprite_prev_direction
+		# Rotation, enemy position, and sus meter reset
+		rotation = prev_enemy_direction
+		global_position = prev_enemy_pos
+		
 		sus_meter = 0.0 
 		
 	

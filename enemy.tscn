@@ -6,6 +6,7 @@
 [ext_resource type="Script" uid="uid://buct0r8oeak0t" path="res://vision_cone.gd" id="6_3yqyl"]
 
 [node name="enemy" type="PathFollow2D"]
+loop = false
 script = ExtResource("1_ak6rt")
 metadata/_edit_vertical_guides_ = [-3860.0]
 
