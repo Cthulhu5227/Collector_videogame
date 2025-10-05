@@ -16,7 +16,15 @@ var cur_input = Key.KEY_SPACE
 # input key
 var press_input
 
-func initialize(duration: float, input: Array, node_refs):	
+var capital_letters = [
+	"A", "B", "C", "D", "F", "G", "H", "I", "J", "K", "L", "M",
+	"N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"
+]
+
+
+func initialize(duration: int, node_refs):	
+	
+	var input = get_parent().get_random_subset(capital_letters, duration)
 	# get qte elements
 	timer = node_refs[0]
 	timer_bar = node_refs[1]
