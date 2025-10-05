@@ -94,3 +94,4 @@ texture = ExtResource("2_onrkg")
 offset = Vector2(0, 10)
 
 [node name="PointLight2D" parent="." instance=ExtResource("4_hqtel")]
+color = Color(0.96862745, 0.8235294, 0.4745098, 0.6745098)

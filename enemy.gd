@@ -37,6 +37,7 @@ var prev_enemy_pos : Vector2
 
 
 func _ready():
+	enemy_sprite.play()
 	progress_ratio = MIN_PROGRESS_RATIO
 	
 	vision_cone.connect("player_spotted", _player_spotted)
@@ -74,22 +75,21 @@ func _bounce_movement(delta):
 	if remaining_time > 0.0:
 		remaining_time -= delta
 		if remaining_time <= 0.0:
-			vision_cone.rotate(PI)
-			enemy_sprite.rotate(PI)
+			enemy_sprite.stop()
+			scale.x *= -1
+			position.y *= -1
 			progress_ratio += progress_ratio_speed / 10
 			remaining_time = 0.0
-		return
-		
 	elif progress_ratio >= MAX_PROGRESS_RATIO || progress_ratio <= MIN_PROGRESS_RATIO:
+		enemy_sprite.stop()
 		progress_ratio_speed *= -1
 		remaining_time = time_to_wait
-		
 	else:
+		enemy_sprite.play()
 		progress_ratio += delta*progress_ratio_speed
-	
 
 func _detecting_player(delta):
-	
+	enemy_sprite.stop()
 	# Match the vision cone to the enemy's rotation
 	
 	# Rotate to face player
@@ -112,6 +112,8 @@ func _detecting_player(delta):
 		sus_meter += SUS_RATE * delta
 
 func _losing_suspicion(delta):
+	enemy_sprite.stop()
+	
 	sus_meter -= SUS_RATE * delta
 	if sus_meter <= 0.0:
 		# Rotation, enemy position, and sus meter reset
