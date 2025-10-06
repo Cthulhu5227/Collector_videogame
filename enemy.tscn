@@ -1,32 +1,61 @@
-[gd_scene load_steps=5 format=3 uid="uid://dhxxy4paeggpd"]
+[gd_scene load_steps=9 format=3 uid="uid://dhxxy4paeggpd"]
 
 [ext_resource type="Script" uid="uid://bg8lihd326sh2" path="res://enemy.gd" id="1_ak6rt"]
-[ext_resource type="Texture2D" uid="uid://k58d5f4c6t1a" path="res://assets/icon.png" id="2_iifgy"]
+[ext_resource type="Texture2D" uid="uid://dj5enkccgrvce" path="res://assets/sprites/parent/parent1.png" id="2_3yqyl"]
+[ext_resource type="Texture2D" uid="uid://cgwgpsr1243di" path="res://assets/sprites/parent/parent2.png" id="3_wujgv"]
+[ext_resource type="Texture2D" uid="uid://cjtsb542h1bog" path="res://assets/sprites/parent/parent3.png" id="4_hb8ge"]
 [ext_resource type="Script" uid="uid://dg8lpe7nt5e2d" path="res://sus_meter.gd" id="4_iifgy"]
 [ext_resource type="Script" uid="uid://buct0r8oeak0t" path="res://vision_cone.gd" id="6_3yqyl"]
+[ext_resource type="Texture2D" uid="uid://n6m4wdqetofa" path="res://assets/flashlight texture.jpg" id="6_wujgv"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_e1ltt"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_3yqyl")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_wujgv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_3yqyl")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_hb8ge")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
 
 [node name="enemy" type="PathFollow2D"]
+loop = false
 script = ExtResource("1_ak6rt")
 metadata/_edit_vertical_guides_ = [-3860.0]
 
-[node name="enemy_sprite" type="Sprite2D" parent="."]
-scale = Vector2(0.1, 0.1)
-texture = ExtResource("2_iifgy")
+[node name="enemy_sprite" type="AnimatedSprite2D" parent="."]
+position = Vector2(-60, 8)
+rotation = 1.5707964
+scale = Vector2(0.2, 0.2)
+sprite_frames = SubResource("SpriteFrames_e1ltt")
+frame = 2
+frame_progress = 0.3708275
+speed_scale = 0.5
 
 [node name="vision_cone" type="Area2D" parent="."]
 collision_layer = 2
 script = ExtResource("6_3yqyl")
 
-[node name="enemy_sight" type="CollisionPolygon2D" parent="vision_cone"]
-position = Vector2(267.65, 0)
-scale = Vector2(20.000008, 15.000004)
-polygon = PackedVector2Array(-13.482, 0, 15.917495, -15.866664, 15.967494, 15.733331)
+[node name="cone" type="PointLight2D" parent="vision_cone"]
+position = Vector2(-4, 0)
+color = Color(0.96862745, 0.8235294, 0.4745098, 0.7490196)
+texture = ExtResource("6_wujgv")
+offset = Vector2(260, 0)
 
-[node name="cone" type="Polygon2D" parent="vision_cone"]
-position = Vector2(267.65, 0)
+[node name="enemy_sight" type="CollisionPolygon2D" parent="vision_cone"]
+position = Vector2(260, 0)
 scale = Vector2(20.000008, 15.000004)
-color = Color(0.13333334, 1, 1, 0.5529412)
-polygon = PackedVector2Array(-13.482, 0, 15.917495, -15.866664, 15.967494, 15.733331)
+polygon = PackedVector2Array(-13.482, 0, 10.567496, -11.466664, 10.717496, 11.199998)
 
 [node name="sus_meter" type="ProgressBar" parent="."]
 anchors_preset = 5

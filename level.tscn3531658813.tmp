@@ -34,8 +34,7 @@ tile_map_data = PackedByteArray("AADR/+X/AAAAAAMAAADR/+b/AAAAAAMAAADR/+f/AAAAAAM
 position = Vector2(396, 156)
 
 [node name="window" parent="." instance=ExtResource("7_n6hdu")]
-position = Vector2(587, 68)
-rotation = -1.5707964
+position = Vector2(627, 82)
 
 [node name="Path2D" type="Path2D" parent="."]
 curve = SubResource("Curve2D_km5ld")
@@ -43,3 +42,5 @@ curve = SubResource("Curve2D_km5ld")
 [node name="enemy" parent="Path2D" instance=ExtResource("2_oi3di")]
 position = Vector2(-675, 217)
 rotation = 0.031485654
+time_to_wait = 1.0
+sus_meter = 0.0

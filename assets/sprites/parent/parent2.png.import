@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b3c28bphmw51n"
-path="res://.godot/imported/fairy_test.png-585eb6d77512523b11bddc7529008c0b.ctex"
+uid="uid://cgwgpsr1243di"
+path="res://.godot/imported/parent2.png-d95ea0135830da7b1d32db087735951d.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/fairy_test.png"
-dest_files=["res://.godot/imported/fairy_test.png-585eb6d77512523b11bddc7529008c0b.ctex"]
+source_file="res://assets/sprites/parent/parent2.png"
+dest_files=["res://.godot/imported/parent2.png-d95ea0135830da7b1d32db087735951d.ctex"]
 
 [params]
 

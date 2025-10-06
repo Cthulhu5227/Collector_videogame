@@ -3,7 +3,7 @@ var  STOP_THRESHOLD = 0.0
 var SPEED = 150
 var target = null
 var selecting = false
-var interact_range = 50
+var interact_range = 100
 
 @onready var tutorial = $prompt
 
@@ -17,6 +17,7 @@ var box_ref = null
 var in_box = false
 
 func _ready():
+	$AnimatedSprite2D.play()
 	Ui.get_node("music_player").play_song("Jett - Upbeat.mp3")
 	Ui.get_node("audio_control").play_sound(0)
 	Ui.visible = true
