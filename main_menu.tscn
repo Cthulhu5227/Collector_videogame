@@ -1,14 +1,11 @@
-[gd_scene load_steps=11 format=3 uid="uid://dfr3jgs12x1bd"]
+[gd_scene load_steps=8 format=3 uid="uid://dfr3jgs12x1bd"]
 
 [ext_resource type="Texture2D" uid="uid://dsf2v8vjsxxab" path="res://assets/title screen.png" id="1_0o4t1"]
-[ext_resource type="Texture2D" uid="uid://bdjkb2g2hs0ws" path="res://assets/play_test.png" id="1_8qtwp"]
-[ext_resource type="Texture2D" uid="uid://jdgfcuenow48" path="res://assets/play_hover_test.png" id="2_dy7ct"]
+[ext_resource type="Texture2D" uid="uid://di5t35uemat2" path="res://assets/sprites/wings_s.png" id="2_qe12f"]
 [ext_resource type="Script" uid="uid://l2woama34ovk" path="res://play_button.gd" id="3_0o4t1"]
-[ext_resource type="Texture2D" uid="uid://d28xhsply6db8" path="res://assets/settings_test.png" id="4_0k4wn"]
-[ext_resource type="Texture2D" uid="uid://uregulaewks2" path="res://assets/settings_hover_test.png" id="5_j5v2v"]
-[ext_resource type="Script" uid="uid://bcnm34cpkcwl" path="res://settings_button.gd" id="6_dy7ct"]
-[ext_resource type="Texture2D" uid="uid://d4lasqjwyn2xn" path="res://assets/quit_test.png" id="6_iotk1"]
-[ext_resource type="Texture2D" uid="uid://c5kahe2avqb5h" path="res://assets/quit_hover_test.png" id="7_w44g7"]
+[ext_resource type="Texture2D" uid="uid://cvsb5fumihxhi" path="res://assets/sprites/wings_s_hover.png" id="3_8qtwp"]
+[ext_resource type="Texture2D" uid="uid://cxi3kmc7fauk3" path="res://assets/sprites/wings_q.png" id="5_dy7ct"]
+[ext_resource type="Texture2D" uid="uid://cpjuti0dcgfdl" path="res://assets/sprites/wings_q_hover.png" id="6_0o4t1"]
 [ext_resource type="Script" uid="uid://bslujryosl65c" path="res://quit_button.gd" id="8_cm266"]
 
 [node name="Main Menu" type="Control"]
@@ -30,27 +27,21 @@ texture = ExtResource("1_0o4t1")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="."]
 layout_mode = 0
-offset_left = 250.0
-offset_top = 500.0
-offset_right = 642.0
-offset_bottom = 564.0
+offset_left = 445.0
+offset_top = 91.0
+offset_right = 849.0
+offset_bottom = 291.0
 
 [node name="play_button" type="TextureButton" parent="HBoxContainer"]
 layout_mode = 2
-texture_normal = ExtResource("1_8qtwp")
-texture_hover = ExtResource("2_dy7ct")
+texture_normal = ExtResource("2_qe12f")
+texture_hover = ExtResource("3_8qtwp")
 script = ExtResource("3_0o4t1")
-
-[node name="settings_button" type="TextureButton" parent="HBoxContainer"]
-layout_mode = 2
-texture_normal = ExtResource("4_0k4wn")
-texture_hover = ExtResource("5_j5v2v")
-script = ExtResource("6_dy7ct")
 
 [node name="quit_button" type="TextureButton" parent="HBoxContainer"]
 layout_mode = 2
-texture_normal = ExtResource("6_iotk1")
-texture_hover = ExtResource("7_w44g7")
+texture_normal = ExtResource("5_dy7ct")
+texture_hover = ExtResource("6_0o4t1")
 script = ExtResource("8_cm266")
 
 [node name="Title" type="Label" parent="."]
@@ -62,4 +53,3 @@ offset_bottom = 58.0
 text = "Teeth Taker"
 
 [connection signal="pressed" from="HBoxContainer/play_button" to="HBoxContainer/play_button" method="_on_pressed"]
-[connection signal="pressed" from="HBoxContainer/settings_button" to="HBoxContainer/play_button" method="_on_settings_button_pressed"]

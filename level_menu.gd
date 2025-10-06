@@ -15,10 +15,7 @@ func _ready():
 		clone.visible = true
 		clone.get_node("Label").text = "level %d" % (level+1)
 		level_container.add_child(clone)
-		
-
 
 func load_level(level_number: int):
 	var level_path = "res://levels/level_%d.tscn" % level_number
-
 	return level_path

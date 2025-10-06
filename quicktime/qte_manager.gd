@@ -34,11 +34,11 @@ func init(qte_type, qte_diff):
 			call_other_script("res://quicktime/qte_mash.gd", diff_array, [$Timer_Bar, $QTE_Instr_Label, $QTE_Input_Label, $QTE_Container])
 		3:
 			if qte_diff == 1:
-				diff_array = [1, 3]
+				diff_array = [1.5, 3]
 			if qte_diff ==  2: 
-				diff_array = [0.75, 5]
+				diff_array = [1.1, 5]
 			if qte_diff ==  3:
-				diff_array = [0.35, 7]
+				diff_array = [0.75, 6]
 			call_other_script("res://quicktime/qte_press.gd", diff_array, [$Timer, $Timer_Bar, $QTE_Instr_Label, $QTE_Input_Label, $QTE_Container])
 		_:
 			print("Warning:", qte_type, "is not an accepted QTE")

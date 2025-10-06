@@ -1,13 +1,15 @@
-[gd_scene load_steps=8 format=3 uid="uid://vwwap5brwk8m"]
+[gd_scene load_steps=9 format=3 uid="uid://vwwap5brwk8m"]
 
 [ext_resource type="Script" uid="uid://emsltq2jrsih" path="res://level_menu.gd" id="1_lnidy"]
 [ext_resource type="Texture2D" uid="uid://dsf2v8vjsxxab" path="res://assets/title screen.png" id="2_gd4f1"]
-[ext_resource type="Texture2D" uid="uid://d4lasqjwyn2xn" path="res://assets/quit_test.png" id="2_w32vy"]
-[ext_resource type="Texture2D" uid="uid://c5kahe2avqb5h" path="res://assets/quit_hover_test.png" id="3_gd4f1"]
+[ext_resource type="FontFile" uid="uid://b85gv5ftrx6vg" path="res://assets/fonts/JockeyOne-Regular.otf" id="3_7blhc"]
 [ext_resource type="Script" uid="uid://bslujryosl65c" path="res://quit_button.gd" id="4_7blhc"]
-[ext_resource type="Texture2D" uid="uid://pikc035wvieh" path="res://assets/level_icon_test.png" id="6_w32vy"]
+[ext_resource type="Texture2D" uid="uid://cxi3kmc7fauk3" path="res://assets/sprites/wings_q.png" id="4_gd4f1"]
+[ext_resource type="Texture2D" uid="uid://cpjuti0dcgfdl" path="res://assets/sprites/wings_q_hover.png" id="5_gd4f1"]
+[ext_resource type="Texture2D" uid="uid://o5q36v7ihw3c" path="res://assets/sprites/house_icon.png" id="7_gd4f1"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_y1rhc"]
+font = ExtResource("3_7blhc")
 font_size = 50
 
 [node name="level_menu" type="Control"]
@@ -39,12 +41,12 @@ label_settings = SubResource("LabelSettings_y1rhc")
 
 [node name="quit_button" type="TextureButton" parent="."]
 layout_mode = 0
-offset_left = 525.0
-offset_top = 469.0
-offset_right = 653.0
-offset_bottom = 533.0
-texture_normal = ExtResource("2_w32vy")
-texture_hover = ExtResource("3_gd4f1")
+offset_left = 973.0
+offset_top = 20.0
+offset_right = 1101.0
+offset_bottom = 84.0
+texture_normal = ExtResource("4_gd4f1")
+texture_hover = ExtResource("5_gd4f1")
 script = ExtResource("4_7blhc")
 
 [node name="level_container" type="HFlowContainer" parent="."]
@@ -53,22 +55,25 @@ layout_mode = 1
 anchors_preset = -1
 anchor_right = 17.525002
 anchor_bottom = 9.475
-offset_left = 145.0531
-offset_top = 127.690735
-offset_right = 385.99994
-offset_bottom = 59.0
+offset_left = 84.0
+offset_top = 420.0
+offset_right = 428.99994
+offset_bottom = 242.30927
 
 [node name="level_button" type="TextureButton" parent="."]
+self_modulate = Color(0.61390406, 0.5655256, 0.6502272, 1)
 layout_mode = 0
 offset_left = 1930.7861
-offset_top = 172.01703
-offset_right = 1994.7861
-offset_bottom = 236.01703
-texture_normal = ExtResource("6_w32vy")
+offset_top = 170.01703
+offset_right = 2030.7861
+offset_bottom = 270.01703
+texture_normal = ExtResource("7_gd4f1")
 
 [node name="Label" type="Label" parent="level_button"]
 layout_mode = 0
-offset_left = 11.213867
-offset_top = 64.98297
-offset_right = 51.213867
-offset_bottom = 87.98297
+offset_left = 13.213867
+offset_top = 87.98297
+offset_right = 91.21387
+offset_bottom = 110.98297
+horizontal_alignment = 1
+vertical_alignment = 1
