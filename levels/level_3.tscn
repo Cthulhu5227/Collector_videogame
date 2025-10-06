@@ -1,6 +1,7 @@
-[gd_scene load_steps=9 format=4 uid="uid://cpvjipwwnuwn6"]
+[gd_scene load_steps=10 format=4 uid="uid://cpvjipwwnuwn6"]
 
 [ext_resource type="PackedScene" uid="uid://henuxxm7oxlp" path="res://camera_2d.tscn" id="1_20opy"]
+[ext_resource type="PackedScene" uid="uid://bcks5aa6qr3t0" path="res://lightfx/dimness.tscn" id="1_ofchu"]
 [ext_resource type="PackedScene" uid="uid://dwsk6befvaf0a" path="res://player.tscn" id="2_8l0e1"]
 [ext_resource type="PackedScene" uid="uid://dhxxy4paeggpd" path="res://enemy.tscn" id="3_lfnxh"]
 [ext_resource type="PackedScene" uid="uid://dbqx4kfoya38a" path="res://bed.tscn" id="4_ofchu"]
@@ -15,6 +16,9 @@ _data = {
 point_count = 6
 
 [node name="Level" type="Node2D"]
+
+[node name="CanvasModulate" parent="." instance=ExtResource("1_ofchu")]
+color = Color(0.57254905, 0.5529412, 0.73333335, 1)
 
 [node name="Camera2D" parent="." instance=ExtResource("1_20opy")]
 
@@ -34,7 +38,7 @@ position = Vector2(221, 147)
 curve = SubResource("Curve2D_lfnxh")
 
 [node name="parent" parent="Path2D" instance=ExtResource("3_lfnxh")]
-position = Vector2(-267, -21)
+position = Vector2(-250, 0)
 rotation = 0.014735775
 
 [node name="window" parent="." instance=ExtResource("7_lfnxh")]

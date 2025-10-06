@@ -6,15 +6,40 @@ var qte_active := false
 var qte_success := false
 
 func init(qte_type, qte_diff):	
+	var diff_array = []
 	match qte_type:
 		0:
-			call_other_script("res://quicktime/qte_catch.gd", qte_diff,[$Timer_Bar, $Catch_Bead, $QTE_Instr_Label, $QTE_Input_Label, $QTE_Container])
+			if qte_diff == 1:
+				diff_array = [100, 75]
+			if qte_diff ==  2: 
+				diff_array = [200, 100]
+			if qte_diff ==  3:
+				diff_array = [300, 125]
+			call_other_script("res://quicktime/qte_catch.gd", diff_array, [$Timer_Bar, $Catch_Bead, $QTE_Instr_Label, $QTE_Input_Label, $QTE_Container])
 		1:
-			call_other_script("res://quicktime/qte_match.gd", qte_diff, [$Timer, $Timer_Bar, $QTE_Instr_Label, $QTE_Match_Label, $QTE_Container, $Input_Container, $Match_Container])
+			if qte_diff == 1:
+				diff_array = [3, 3]
+			if qte_diff ==  2: 
+				diff_array = [2, 4]
+			if qte_diff ==  3:
+				diff_array = [3, 6]
+			call_other_script("res://quicktime/qte_match.gd", diff_array, [$Timer, $Timer_Bar, $QTE_Instr_Label, $QTE_Match_Label, $QTE_Container, $Input_Container, $Match_Container])
 		2:
-			call_other_script("res://quicktime/qte_mash.gd", qte_diff,  [$Timer_Bar, $QTE_Instr_Label, $QTE_Input_Label, $QTE_Container])
+			if qte_diff == 1:
+				diff_array = [0.15, 0.001]
+			if qte_diff ==  2: 
+				diff_array = [0.0075, 0.002]
+			if qte_diff ==  3:
+				diff_array = [0.005, 0.003]
+			call_other_script("res://quicktime/qte_mash.gd", diff_array, [$Timer_Bar, $QTE_Instr_Label, $QTE_Input_Label, $QTE_Container])
 		3:
-			call_other_script("res://quicktime/qte_press.gd", qte_diff,  [$Timer, $Timer_Bar, $QTE_Instr_Label, $QTE_Input_Label, $QTE_Container])
+			if qte_diff == 1:
+				diff_array = [1, 3]
+			if qte_diff ==  2: 
+				diff_array = [0.75, 5]
+			if qte_diff ==  3:
+				diff_array = [0.35, 7]
+			call_other_script("res://quicktime/qte_press.gd", diff_array, [$Timer, $Timer_Bar, $QTE_Instr_Label, $QTE_Input_Label, $QTE_Container])
 		_:
 			print("Warning:", qte_type, "is not an accepted QTE")
 
@@ -25,9 +50,7 @@ func receive_data_from_child(data):
 		get_parent().receive_data_from_child(data)
 	return
 
-# notes: see internal points for specific QTEs
-# may also need to turn difficulty into an array to handle special modifiers for mash and catch
-func call_other_script(path: String, difficulty: float, refs: Array):
+func call_other_script(path: String, difficulty: Array, refs: Array):
 	qte_inst = load(path).new()
 	add_child(qte_inst)
 	if qte_inst.has_method("initialize"):

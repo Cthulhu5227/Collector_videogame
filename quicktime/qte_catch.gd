@@ -21,7 +21,6 @@ var moving_right := true
 # input key
 var press_input
 var bead_speed := 0.0
-var speed_constant := 50.0
 
 var capital_letters = [
 	"A", "B", "C", "D", "F", "G", "H", "I", "J", "K", "L", "M",
@@ -29,7 +28,7 @@ var capital_letters = [
 ]
 
 
-func initialize(difficulty: float, node_refs):	
+func initialize(difficulty, node_refs):	
 	var input = get_parent().get_random_subset(capital_letters, 1)
 	# get qte elements
 	catch_bar = node_refs[0]
@@ -39,11 +38,11 @@ func initialize(difficulty: float, node_refs):
 	container_background = node_refs[4]
 	
 	# set variables
-	bead_speed = difficulty * speed_constant
+	bead_speed = difficulty[0]
 	press_input = OS.find_keycode_from_string(input[0])
 	
 	# set up bar
-	set_bar(catch_bar, difficulty)
+	set_bar(catch_bar, difficulty[1])
 	
 	# set up bead
 	catch_bead.visible = true
@@ -56,14 +55,14 @@ func initialize(difficulty: float, node_refs):
 func set_bar(bar, scale):
 	var new_points = []
 	var center_x = 125
-	
+	var offset = randi_range(-20, 20)
 	for point in bar.polygon:
 		if point.x > center_x:
-			bar_start_x = point.x - scale*50
-			new_points.append(Vector2(bar_start_x, point.y))
-		else:
-			bar_end_x = point.x + scale*50
+			bar_end_x = point.x - scale + offset
 			new_points.append(Vector2(bar_end_x, point.y))
+		else:
+			bar_start_x = point.x + scale + offset
+			new_points.append(Vector2(bar_start_x, point.y))
 	bar.polygon = new_points
 
 func _process(delta):
@@ -82,6 +81,9 @@ func _process(delta):
 func _input(event):
 	if (qte_instance_active) and (event is InputEventKey) and (event.pressed):
 		if (event.keycode == press_input):
+			print(bar_start_x)
+			print(catch_bead.position.x)
+			print(bar_end_x)
 			var bead_pos = catch_bead.position.x
 			if bead_pos >= bar_start_x and bead_pos <= bar_end_x:
 				qte_instance_active = false

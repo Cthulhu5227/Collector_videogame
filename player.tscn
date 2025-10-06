@@ -1,7 +1,7 @@
 [gd_scene load_steps=12 format=3 uid="uid://dwsk6befvaf0a"]
 
 [ext_resource type="Script" uid="uid://brc1e7osnia4v" path="res://player.gd" id="1_4flbx"]
-[ext_resource type="PackedScene" path="res://camera_2d.tscn" id="2_i3pqv"]
+[ext_resource type="PackedScene" uid="uid://henuxxm7oxlp" path="res://camera_2d.tscn" id="2_i3pqv"]
 [ext_resource type="Texture2D" uid="uid://buhtsvkuhm3qt" path="res://assets/sprites/fairy/fairymain.png" id="3_1jxqw"]
 [ext_resource type="Texture2D" uid="uid://cyoglr6lq7ock" path="res://assets/sprites/fairy/fairy1.png" id="4_dw050"]
 [ext_resource type="PackedScene" uid="uid://by5wwuxaugt0n" path="res://lightfx/player_light.tscn" id="4_hqtel"]
@@ -96,6 +96,7 @@ script = ExtResource("1_4flbx")
 [node name="Camera2D" parent="." instance=ExtResource("2_i3pqv")]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+scale = Vector2(1.2, 1.2)
 shape = SubResource("CircleShape2D_onrkg")
 
 [node name="prompt" type="Label" parent="."]
@@ -116,9 +117,10 @@ libraries = {
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 z_index = 998
-position = Vector2(-0.99999994, -1.9999999)
-scale = Vector2(0.175, 0.175)
+position = Vector2(-0.99999994, 0.99999994)
+scale = Vector2(0.2, 0.2)
 sprite_frames = SubResource("SpriteFrames_n7ghd")
 
 [node name="PointLight2D" parent="." instance=ExtResource("4_hqtel")]
 color = Color(0.96862745, 0.8235294, 0.4745098, 0.6745098)
+texture_scale = 6.0

@@ -1,6 +1,7 @@
-[gd_scene load_steps=9 format=4 uid="uid://bqnjb55odv1g0"]
+[gd_scene load_steps=10 format=4 uid="uid://bqnjb55odv1g0"]
 
 [ext_resource type="PackedScene" uid="uid://henuxxm7oxlp" path="res://camera_2d.tscn" id="1_5722l"]
+[ext_resource type="PackedScene" uid="uid://bcks5aa6qr3t0" path="res://lightfx/dimness.tscn" id="1_dfjjl"]
 [ext_resource type="PackedScene" uid="uid://dwsk6befvaf0a" path="res://player.tscn" id="2_ilhis"]
 [ext_resource type="PackedScene" uid="uid://dhxxy4paeggpd" path="res://enemy.tscn" id="3_ep78u"]
 [ext_resource type="PackedScene" uid="uid://dbqx4kfoya38a" path="res://bed.tscn" id="4_dfjjl"]
@@ -15,6 +16,9 @@ _data = {
 point_count = 2
 
 [node name="Level" type="Node2D"]
+
+[node name="CanvasModulate" parent="." instance=ExtResource("1_dfjjl")]
+color = Color(0.57254905, 0.5529412, 0.73333335, 1)
 
 [node name="Camera2D" parent="." instance=ExtResource("1_5722l")]
 

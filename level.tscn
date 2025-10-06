@@ -4,8 +4,8 @@
 [ext_resource type="PackedScene" uid="uid://dwsk6befvaf0a" path="res://player.tscn" id="1_vonw3"]
 [ext_resource type="PackedScene" uid="uid://dhxxy4paeggpd" path="res://enemy.tscn" id="2_oi3di"]
 [ext_resource type="PackedScene" uid="uid://dbqx4kfoya38a" path="res://bed.tscn" id="3_oi3di"]
-[ext_resource type="PackedScene" path="res://basic_room.tscn" id="5_1ainy"]
-[ext_resource type="PackedScene" path="res://camera_2d.tscn" id="5_f2txt"]
+[ext_resource type="PackedScene" uid="uid://c3th6ihcugi4r" path="res://basic_room.tscn" id="5_1ainy"]
+[ext_resource type="PackedScene" uid="uid://henuxxm7oxlp" path="res://camera_2d.tscn" id="5_f2txt"]
 [ext_resource type="PackedScene" uid="uid://ffxtod7tc6mj" path="res://box.tscn" id="6_1ainy"]
 [ext_resource type="PackedScene" uid="uid://doyg3xf8tfm1n" path="res://window.tscn" id="7_n6hdu"]
 
@@ -18,7 +18,7 @@ point_count = 2
 [node name="Level" type="Node2D"]
 
 [node name="dimness" parent="." instance=ExtResource("1_km5ld")]
-color = Color(0.5847179, 0.5847179, 0.6651851, 1)
+color = Color(0.5718082, 0.55147827, 0.73512024, 1)
 
 [node name="Camera2D" parent="." instance=ExtResource("5_f2txt")]
 

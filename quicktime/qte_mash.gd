@@ -20,7 +20,7 @@ var capital_letters = [
 	"N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"
 ]
 
-func initialize(difficulty: float, node_refs):	
+func initialize(difficulty: Array, node_refs):	
 	var input = get_parent().get_random_subset(capital_letters, 1)
 	# get qte elements
 	mash_bar = node_refs[0]
@@ -29,8 +29,9 @@ func initialize(difficulty: float, node_refs):
 	
 	# set up mash bar
 	mash_bar.scale.x = 0
-	dec_speed = difficulty * 0.01
-	input_value = difficulty
+	input_value = difficulty[0]
+	dec_speed = difficulty[1]
+	
 	
 	# Start QTE
 	instruction_label.bbcode_text = "[center][color=white]Mash![/color][/center]"

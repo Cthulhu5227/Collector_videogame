@@ -31,8 +31,8 @@ var input_map = {
 
 var inputs_possible = ["U", "D", "L", "R"]
 
-func initialize(duration: int , node_refs):	
-	var input = get_parent().get_random_subset(inputs_possible, duration)
+func initialize(difficulty, node_refs):	
+	var input = get_parent().get_random_subset(inputs_possible, difficulty[1])
 	# get qte elements
 	timer = node_refs[0]
 	timer_bar = node_refs[1]
@@ -47,8 +47,8 @@ func initialize(duration: int , node_refs):
 	
 	# set up timer
 	timer.connect("timeout", Callable(self, "_on_timer_timeout"))
-	total_duration = duration
-	timer.wait_time = duration
+	total_duration = difficulty[0]
+	timer.wait_time = total_duration
 	
 	# set up values
 	match_input = input

@@ -23,9 +23,9 @@ var capital_letters = [
 	"N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"
 ]
 
-func initialize(duration, node_refs):	
+func initialize(difficulty, node_refs):	
 	# need to actually divide them
-	total_quantity = duration
+	total_quantity = difficulty[1]
 	var input = get_parent().get_random_subset(capital_letters, total_quantity)
 	
 	# get qte elements
@@ -37,8 +37,8 @@ func initialize(duration, node_refs):
 	
 	# set up timer
 	timer.connect("timeout", Callable(self, "_on_timer_timeout"))
-	total_duration = duration
-	timer.wait_time = duration
+	total_duration = difficulty[0]
+	timer.wait_time = total_duration
 	
 	# set up values
 	nec_progress = input.size()
