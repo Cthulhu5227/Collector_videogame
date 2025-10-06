@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://dj5enkccgrvce" path="res://assets/sprites/parent/parent1.png" id="2_3yqyl"]
 [ext_resource type="Texture2D" uid="uid://cgwgpsr1243di" path="res://assets/sprites/parent/parent2.png" id="3_wujgv"]
 [ext_resource type="Texture2D" uid="uid://cjtsb542h1bog" path="res://assets/sprites/parent/parent3.png" id="4_hb8ge"]
-[ext_resource type="Script" path="res://sus_meter.gd" id="4_iifgy"]
+[ext_resource type="Script" uid="uid://dg8lpe7nt5e2d" path="res://sus_meter.gd" id="4_iifgy"]
 [ext_resource type="Script" uid="uid://buct0r8oeak0t" path="res://vision_cone.gd" id="6_3yqyl"]
 [ext_resource type="Texture2D" uid="uid://n6m4wdqetofa" path="res://assets/flashlight texture.jpg" id="6_wujgv"]
 
