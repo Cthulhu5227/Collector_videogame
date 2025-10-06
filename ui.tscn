@@ -1,14 +1,15 @@
-[gd_scene load_steps=13 format=3 uid="uid://b1wobbwoqomn6"]
+[gd_scene load_steps=14 format=3 uid="uid://c3dxvf2x81wwt"]
 
 [ext_resource type="Script" uid="uid://h5gvvejyycn7" path="res://ui.gd" id="1_fyqef"]
-[ext_resource type="Script" uid="uid://c15j6bq2i7nrk" path="res://pause_menu.gd" id="2_m6e0p"]
-[ext_resource type="Script" uid="uid://bslujryosl65c" path="res://quit_button.gd" id="3_27fn8"]
+[ext_resource type="Script" path="res://pause_menu.gd" id="2_m6e0p"]
+[ext_resource type="Script" path="res://quit_button.gd" id="3_27fn8"]
 [ext_resource type="Texture2D" uid="uid://d4lasqjwyn2xn" path="res://assets/quit_test.png" id="3_nltto"]
 [ext_resource type="Texture2D" uid="uid://c5kahe2avqb5h" path="res://assets/quit_hover_test.png" id="4_ibotj"]
+[ext_resource type="Texture2D" uid="uid://ctlxnagfu242c" path="res://assets/tooth.png" id="6_e2l4f"]
 [ext_resource type="PackedScene" uid="uid://22f118a2rwec" path="res://audio_control.tscn" id="7_y4yjw"]
 [ext_resource type="Texture2D" uid="uid://1vlx4jojkgpo" path="res://assets/continue_test.png" id="8_irxef"]
-[ext_resource type="Script" uid="uid://cl566b8lrhplm" path="res://continue_button.gd" id="8_ok7cu"]
-[ext_resource type="Script" uid="uid://u727i38mquow" path="res://music_player.gd" id="8_waa4j"]
+[ext_resource type="Script" path="res://continue_button.gd" id="8_ok7cu"]
+[ext_resource type="Script" path="res://music_player.gd" id="8_waa4j"]
 [ext_resource type="Texture2D" uid="uid://bl7pjkctxytcw" path="res://assets/continue_hover_test.png" id="9_e2l4f"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_n5ude"]
@@ -60,6 +61,13 @@ offset_right = 113.0
 offset_bottom = 55.0
 text = "Teeth "
 label_settings = SubResource("LabelSettings_n5ude")
+
+[node name="tooth" type="TextureRect" parent="teeth_counter"]
+layout_mode = 0
+offset_left = 230.0
+offset_right = 294.00006
+offset_bottom = 64.0
+texture = ExtResource("6_e2l4f")
 
 [node name="audio_control" parent="." instance=ExtResource("7_y4yjw")]
 volume_db = -14.312
