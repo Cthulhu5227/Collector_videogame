@@ -99,6 +99,7 @@ script = ExtResource("1_4flbx")
 shape = SubResource("CircleShape2D_onrkg")
 
 [node name="prompt" type="Label" parent="."]
+z_index = 999
 offset_left = -70.0
 offset_top = 20.0
 offset_right = 71.0
@@ -114,6 +115,7 @@ libraries = {
 }
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+z_index = 998
 position = Vector2(-0.99999994, -1.9999999)
 scale = Vector2(0.175, 0.175)
 sprite_frames = SubResource("SpriteFrames_n7ghd")

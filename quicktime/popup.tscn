@@ -1,9 +1,10 @@
-[gd_scene load_steps=2 format=3 uid="uid://bb2crqvhfom2h"]
+[gd_scene load_steps=3 format=3 uid="uid://bb2crqvhfom2h"]
 
 [ext_resource type="Script" uid="uid://2135iefg8lfn" path="res://quicktime/qte_manager.gd" id="1_sw60f"]
 [ext_resource type="Texture2D" uid="uid://d4a0vidvjg3lm" path="res://assets/catch_bead.png" id="2_stx46"]
 
 [node name="Node2D" type="Node2D"]
+z_index = 1000
 script = ExtResource("1_sw60f")
 
 [node name="QTE_Container" type="Polygon2D" parent="."]
@@ -20,7 +21,7 @@ offset_left = 5.0
 offset_top = 5.0
 offset_right = 147.0
 offset_bottom = 70.0
-theme_override_font_sizes/normal_font_size = 30
+theme_override_font_sizes/normal_font_size = 40
 bbcode_enabled = true
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -30,10 +31,14 @@ offset_left = 170.0
 offset_top = 5.0
 offset_right = 235.0
 offset_bottom = 70.0
-theme_override_font_sizes/normal_font_size = 14
+theme_override_font_sizes/normal_font_size = 48
 bbcode_enabled = true
 horizontal_alignment = 2
 vertical_alignment = 1
+
+[node name="QTE_Match_Label" type="RichTextLabel" parent="."]
+offset_right = 40.0
+offset_bottom = 40.0
 
 [node name="Timer" type="Timer" parent="."]
 
@@ -48,6 +53,7 @@ color = Color(0.7447451, 0.49448317, 0, 1)
 polygon = PackedVector2Array(0, 0, 250, 0, 250, 10, 0, 10)
 
 [node name="Catch_Bead" type="Sprite2D" parent="."]
+visible = false
 position = Vector2(5, 80)
 scale = Vector2(0.05, 0.05)
 texture = ExtResource("2_stx46")

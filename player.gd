@@ -48,7 +48,7 @@ func _input(event):
 	
 	elif event.is_action_pressed("interact"):
 		for bed in get_tree().get_nodes_in_group("bed"):
-			if global_position.distance_to(bed.global_position) < interact_range: 
+			if global_position.distance_to(bed.global_position) < interact_range and not bed.used: 
 				bed.interact()
 				cripple = true
 				return
@@ -66,7 +66,7 @@ func _physics_process(delta):
 	## check for boxes and such 
 	$AnimationPlayer.play("oscilate")	
 	for bed in get_tree().get_nodes_in_group("bed"):
-			if global_position.distance_to(bed.global_position) < interact_range: 
+			if global_position.distance_to(bed.global_position) < interact_range and not bed.used: 
 				tutorial.visible = true 
 				break
 			tutorial.visible = false 
