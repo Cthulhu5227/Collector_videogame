@@ -1,7 +1,7 @@
 extends StaticBody2D
 
 var qte_type: int # "catch", "match", "mash", "press"
-var qte_diff: float # difficulty
+@export var diff: int = 1
 var qte_input: Array # []
 
 var qteing = true
@@ -24,12 +24,11 @@ func receive_data_from_child(data):
 func interact():
 	if not used:
 		used = true
-		make_quicktime(1)
+		make_quicktime(diff)
 	return
 
 func make_quicktime(qte_diff):
 	qte_type = randi_range(0,3)
-	qte_type = 3
 	var qte_instance = quicktime_event.instantiate()
 	qte_instance.position.x -= 150
 	add_child(qte_instance)
