@@ -1,7 +1,7 @@
 extends StaticBody2D
 
 var qte_type: int # "catch", "match", "mash", "press"
-@export var diff: int = 1
+@export var diff: int
 var qte_input: Array # []
 
 var qteing = true

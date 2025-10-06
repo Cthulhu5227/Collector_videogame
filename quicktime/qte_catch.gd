@@ -21,6 +21,7 @@ var moving_right := true
 # input key
 var press_input
 var bead_speed := 0.0
+var bar_length := 0
 
 var capital_letters = [
 	"A", "B", "C", "D", "F", "G", "H", "I", "J", "K", "L", "M",
@@ -39,10 +40,11 @@ func initialize(difficulty, node_refs):
 	
 	# set variables
 	bead_speed = difficulty[0]
+	bar_length = difficulty[1]
 	press_input = OS.find_keycode_from_string(input[0])
 	
 	# set up bar
-	set_bar(catch_bar, difficulty[1])
+	set_bar(catch_bar)
 	
 	# set up bead
 	catch_bead.visible = true
@@ -52,16 +54,24 @@ func initialize(difficulty, node_refs):
 	input_label.bbcode_text = "[center][color=white]%s[/color][/center]" % input[0]
 	qte_instance_active = true
 
-func set_bar(bar, scale):
+func reset_bar(bar):
+	bar.polygon = [
+		Vector2(0, 0),
+		Vector2(250, 0),
+		Vector2(250, 10),
+		Vector2(0, 10)
+	]
+	
+func set_bar(bar):
 	var new_points = []
 	var center_x = 125
-	var offset = randi_range(-20, 20)
+	var offset = randi_range(-40, 40)
 	for point in bar.polygon:
 		if point.x > center_x:
-			bar_end_x = point.x - scale + offset
+			bar_end_x = point.x - bar_length + offset
 			new_points.append(Vector2(bar_end_x, point.y))
 		else:
-			bar_start_x = point.x + scale + offset
+			bar_start_x = point.x + bar_length + offset
 			new_points.append(Vector2(bar_start_x, point.y))
 	bar.polygon = new_points
 
@@ -104,4 +114,6 @@ func stun():
 	instruction_label.bbcode_text = "[center][color=white]Catch![/color][/center]"
 	container_background.color = Color(0.306, 0.0, 0.306, 1.0)
 	qte_instance_active = true
+	reset_bar(catch_bar)
+	set_bar(catch_bar)
 	return

@@ -7,38 +7,40 @@ var qte_success := false
 
 func init(qte_type, qte_diff):	
 	var diff_array = []
+	qte_type = 3
+	qte_diff = 2
 	match qte_type:
 		0:
 			if qte_diff == 1:
-				diff_array = [100, 75]
+				diff_array = [175, 90]
 			if qte_diff ==  2: 
-				diff_array = [200, 100]
+				diff_array = [260, 106]
 			if qte_diff ==  3:
-				diff_array = [300, 125]
+				diff_array = [320, 112]
 			call_other_script("res://quicktime/qte_catch.gd", diff_array, [$Timer_Bar, $Catch_Bead, $QTE_Instr_Label, $QTE_Input_Label, $QTE_Container])
 		1:
 			if qte_diff == 1:
-				diff_array = [3, 3]
+				diff_array = [3, 4]
 			if qte_diff ==  2: 
-				diff_array = [2, 4]
-			if qte_diff ==  3:
 				diff_array = [3, 6]
+			if qte_diff ==  3:
+				diff_array = [3, 8]
 			call_other_script("res://quicktime/qte_match.gd", diff_array, [$Timer, $Timer_Bar, $QTE_Instr_Label, $QTE_Match_Label, $QTE_Container, $Input_Container, $Match_Container])
 		2:
 			if qte_diff == 1:
-				diff_array = [0.15, 0.001]
+				diff_array = [0.175, 0.001]
 			if qte_diff ==  2: 
-				diff_array = [0.0075, 0.002]
+				diff_array = [0.1, 0.0015]
 			if qte_diff ==  3:
-				diff_array = [0.005, 0.003]
+				diff_array = [0.075, 0.002]
 			call_other_script("res://quicktime/qte_mash.gd", diff_array, [$Timer_Bar, $QTE_Instr_Label, $QTE_Input_Label, $QTE_Container])
 		3:
 			if qte_diff == 1:
-				diff_array = [1.5, 3]
+				diff_array = [2, 4]
 			if qte_diff ==  2: 
-				diff_array = [1.1, 5]
+				diff_array = [1.5, 5]
 			if qte_diff ==  3:
-				diff_array = [0.75, 6]
+				diff_array = [1, 7]
 			call_other_script("res://quicktime/qte_press.gd", diff_array, [$Timer, $Timer_Bar, $QTE_Instr_Label, $QTE_Input_Label, $QTE_Container])
 		_:
 			print("Warning:", qte_type, "is not an accepted QTE")

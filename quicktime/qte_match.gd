@@ -10,6 +10,7 @@ var container_background
 
 # timer bar stuff
 var total_duration := 0
+var total_amount := 0
 var nec_progress = 1
 var cur_progress = 0
 var cur_input = Key.KEY_SPACE
@@ -32,7 +33,8 @@ var input_map = {
 var inputs_possible = ["U", "D", "L", "R"]
 
 func initialize(difficulty, node_refs):	
-	var input = get_parent().get_random_subset(inputs_possible, difficulty[1])
+	total_amount = difficulty[1]
+	var input = get_parent().get_random_subset(inputs_possible, total_amount)
 	# get qte elements
 	timer = node_refs[0]
 	timer_bar = node_refs[1]
@@ -116,7 +118,8 @@ func stun():
 	instruction_label.bbcode_text = "[center][color=white]Match![/color][/center]"
 	container_background.color = Color(0.306, 0.0, 0.306, 1.0)
 	qte_instance_active = true
-	match_input = get_parent().get_random_subset(inputs_possible, total_duration)
+	match_input = get_parent().get_random_subset(inputs_possible, total_amount)
+	print(match_input)
 	_update_input_label()
 	timer.start()
 	return

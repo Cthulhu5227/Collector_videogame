@@ -36,9 +36,11 @@ position = Vector2(509, -21)
 
 [node name="bed" parent="." instance=ExtResource("4_ldpug")]
 position = Vector2(-270, 825)
+diff = 2
 
 [node name="bed2" parent="." instance=ExtResource("4_ldpug")]
 position = Vector2(1310, 819)
+diff = 3
 
 [node name="window" parent="." instance=ExtResource("6_a58qw")]
 position = Vector2(511, -34)

@@ -29,6 +29,7 @@ position = Vector2(-196, -38)
 
 [node name="bed" parent="." instance=ExtResource("4_dfjjl")]
 position = Vector2(619, 365)
+diff = 1
 
 [node name="window" parent="." instance=ExtResource("7_ep78u")]
 position = Vector2(-199, -111)

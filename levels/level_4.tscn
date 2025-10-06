@@ -30,9 +30,11 @@ position = Vector2(86, 29)
 
 [node name="bed" parent="." instance=ExtResource("4_sc6c1")]
 position = Vector2(768, 492)
+diff = 2
 
 [node name="bed2" parent="." instance=ExtResource("4_sc6c1")]
 position = Vector2(779, -428)
+diff = 2
 
 [node name="box" parent="." instance=ExtResource("6_0fd8o")]
 position = Vector2(1007, 562)

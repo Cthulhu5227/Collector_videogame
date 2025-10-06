@@ -59,15 +59,15 @@ diff = 3
 
 [node name="bed3" parent="." instance=ExtResource("4_q3845")]
 position = Vector2(401.90723, -768.7903)
-diff = 3
+diff = 2
 
 [node name="bed4" parent="." instance=ExtResource("4_q3845")]
 position = Vector2(-1338.8757, 12.197998)
-diff = 3
+diff = 2
 
 [node name="bed5" parent="." instance=ExtResource("4_q3845")]
 position = Vector2(453.08667, 6.0820313)
-diff = 3
+diff = 2
 
 [node name="bed6" parent="." instance=ExtResource("4_q3845")]
 position = Vector2(-521.5962, -22.648926)
