@@ -8,7 +8,7 @@ signal player_spotted
 signal player_left
 
 func _ready():
-	
+	add_to_group("vision_cones")
 	connect("body_entered", _on_body_entered)
 	connect("body_exited", _on_body_exited)
 
@@ -32,7 +32,8 @@ func _can_see_player(player: CharacterBody2D) -> bool:
 	var query = PhysicsRayQueryParameters2D.new()
 	query.from = global_position
 	query.to = player.global_position
-	query.exclude = [self, player]
+	var cones = get_tree().get_nodes_in_group("vision_cones")
+	query.exclude = cones + [self, player]
 	query.collide_with_areas = true
 	query.collide_with_bodies = true
 
