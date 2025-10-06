@@ -8,7 +8,7 @@ var qteing = true
 var success = false
 var used = false
 
-var quicktime_event = preload("res://quicktime/popup.tscn")
+var quicktime_event = load("res://quicktime/popup.tscn")
 
 func receive_data_from_child(data):
 	success = data

@@ -13,7 +13,7 @@ class_name Enemy
 @onready var player = get_node("../../player")
 
 var progress_ratio_speed := 0.3
-var enemy_speed := 5
+var enemy_speed := 100
 var rotation_speed := 0.5
 
 # Wait time until the enemy turns around and continues on their path

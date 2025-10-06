@@ -1,11 +1,10 @@
-[gd_scene load_steps=7 format=4 uid="uid://bbao5ut5yflua"]
+[gd_scene load_steps=6 format=4 uid="uid://bbao5ut5yflua"]
 
 [ext_resource type="PackedScene" uid="uid://henuxxm7oxlp" path="res://camera_2d.tscn" id="1_n46q3"]
 [ext_resource type="PackedScene" uid="uid://dwsk6befvaf0a" path="res://player.tscn" id="2_btoec"]
 [ext_resource type="PackedScene" uid="uid://dbqx4kfoya38a" path="res://bed.tscn" id="4_l53as"]
 [ext_resource type="PackedScene" uid="uid://c3th6ihcugi4r" path="res://basic_room.tscn" id="5_3sk1a"]
 [ext_resource type="PackedScene" uid="uid://doyg3xf8tfm1n" path="res://window.tscn" id="6_btoec"]
-[ext_resource type="PackedScene" uid="uid://caw1gaxetecgm" path="res://enemy_path.tscn" id="6_gwceb"]
 
 [node name="Level" type="Node2D"]
 
@@ -21,7 +20,3 @@ tile_map_data = PackedByteArray("AAD4//r/AAAAAAAAAAD4//v/AAAAAAAAAAD4//z/AAAAAAA
 
 [node name="window" parent="." instance=ExtResource("6_btoec")]
 position = Vector2(-108, -11)
-
-[node name="Path2D" parent="." instance=ExtResource("6_gwceb")]
-
-[node name="Path2D2" parent="." instance=ExtResource("6_gwceb")]

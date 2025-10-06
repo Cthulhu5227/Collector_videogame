@@ -8,6 +8,7 @@ func _ready():
 		var level_scene = load_level(level+1)
 		var clone = level_button.duplicate()
 		var function_access = func load_level(): 
+			load(level_scene)
 			get_tree().change_scene_to_file(level_scene)
 			Ui.visible = true
 		clone.connect("pressed", function_access)
@@ -19,9 +20,5 @@ func _ready():
 
 func load_level(level_number: int):
 	var level_path = "res://levels/level_%d.tscn" % level_number
-	var level_scene = load(level_path)
-	if level_scene:
-		print("Loaded:", level_path)
-	else:
-		print("Level not found:", level_path)
+
 	return level_path
