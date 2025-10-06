@@ -21,9 +21,10 @@ scale = Vector2(0.75, 0.75)
 shape = SubResource("RectangleShape2D_srjdr")
 
 [node name="Label" type="Label" parent="."]
-visible = false
-offset_right = 40.0
-offset_bottom = 24.0
+offset_left = 49.0
+offset_top = 69.0
+offset_right = 143.0
+offset_bottom = 93.0
 text = "Press E to Leave"
 
 [connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]

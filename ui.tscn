@@ -11,7 +11,7 @@
 [ext_resource type="Script" uid="uid://u727i38mquow" path="res://music_player.gd" id="8_waa4j"]
 [ext_resource type="Texture2D" uid="uid://cxi3kmc7fauk3" path="res://assets/sprites/wings_q.png" id="9_7rqds"]
 [ext_resource type="Texture2D" uid="uid://cpjuti0dcgfdl" path="res://assets/sprites/wings_q_hover.png" id="10_nvb2n"]
-[ext_resource type="Script" path="res://retry_button.gd" id="11_e2l4f"]
+[ext_resource type="Script" uid="uid://bftp35jn4256y" path="res://retry_button.gd" id="11_e2l4f"]
 [ext_resource type="Texture2D" uid="uid://8sv1g5kl876q" path="res://assets/sprites/wings_n.png" id="11_os5c7"]
 [ext_resource type="Texture2D" uid="uid://jlm2agjo84dy" path="res://assets/sprites/wings_n_hover.png" id="12_b2p7n"]
 [ext_resource type="Texture2D" uid="uid://bsfx85sma2rn2" path="res://assets/sprites/wings_r.png" id="14_7rqds"]
@@ -212,7 +212,7 @@ offset_right = 841.0
 offset_bottom = 527.0
 texture_normal = ExtResource("9_7rqds")
 texture_hover = ExtResource("10_nvb2n")
-script = ExtResource("3_27fn8")
+script = ExtResource("8_ok7cu")
 
 [node name="retry_button" type="TextureButton" parent="game_over_menu"]
 layout_mode = 0
