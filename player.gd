@@ -1,14 +1,16 @@
 extends CharacterBody2D
-var  STOP_THRESHOLD = 0.0
-var SPEED = 150
+
+var cur_velocity = Vector2.ZERO
+var acceleration = 500
+var max_speed = 150
 var target = null
 var selecting = false
+
+# range to interact with object
 var interact_range = 100
 
 @onready var tutorial = $prompt
 
-var amplitude = 20.0  # how far it moves
-var speed = 2.0       # how fast it moves
 var start_position = position
 var osc_time = 4.0
 
@@ -23,7 +25,7 @@ func _ready():
 	Ui.visible = true
 
 func _input(event):
-	if cripple and event.is_action_pressed("interact")  and in_box: #or (event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT)):
+	if cripple and event.is_action_pressed("interact") and in_box: #or (event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT)):
 		visible = true
 		cripple = false
 		box_ref = null
@@ -33,7 +35,7 @@ func _input(event):
 	elif event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT:
 		if event.pressed:
 			target = get_global_mouse_position()
-			velocity = position.direction_to(target) * SPEED
+			velocity = position.direction_to(target) * max_speed
 			selecting = true
 		else:
 			selecting = false
@@ -42,7 +44,7 @@ func _input(event):
 			
 	elif event is InputEventMouseMotion and selecting:
 		target = get_global_mouse_position()
-		velocity = position.direction_to(target) * SPEED
+		velocity = position.direction_to(target) * max_speed
 	
 	elif event.is_action_pressed("interact"):
 		for bed in get_tree().get_nodes_in_group("bed"):
@@ -61,7 +63,8 @@ func _input(event):
 				return
 
 func _physics_process(delta):
-## check for boxes and such 
+	## check for boxes and such 
+	$AnimationPlayer.play("oscilate")	
 	for bed in get_tree().get_nodes_in_group("bed"):
 			if global_position.distance_to(bed.global_position) < interact_range: 
 				tutorial.visible = true 
@@ -75,9 +78,11 @@ func _physics_process(delta):
 				break
 			tutorial.visible = false
 	if not cripple:
-		move_and_collide(velocity * delta)
-	$AnimationPlayer.play("oscilate")
-
+		if target:
+			cur_velocity = cur_velocity.move_toward((position.direction_to(target) * max_speed), acceleration * delta)
+		else:
+			cur_velocity = cur_velocity.move_toward(Vector2.ZERO, acceleration * delta)
+		move_and_collide(cur_velocity * delta)
 
 ##### find closest box
 func find_closest_box():

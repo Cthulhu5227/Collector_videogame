@@ -1,7 +1,7 @@
 [gd_scene load_steps=2 format=3 uid="uid://bb2crqvhfom2h"]
 
 [ext_resource type="Script" uid="uid://2135iefg8lfn" path="res://quicktime/qte_manager.gd" id="1_sw60f"]
-[ext_resource type="Texture2D" uid="uid://d4a0vidvjg3lm" path="res://assets/fairy_test.png" id="2_stx46"]
+[ext_resource type="Texture2D" uid="uid://d4a0vidvjg3lm" path="res://assets/catch_bead.png" id="2_stx46"]
 
 [node name="Node2D" type="Node2D"]
 script = ExtResource("1_sw60f")
