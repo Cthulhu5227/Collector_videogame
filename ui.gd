@@ -13,10 +13,24 @@ func _input(event):
 func update_teeth_counter():
 	teeth_counter.text = str(Inventory.teeth)
 
+func game_over_screen():
+	var n = $game_over_menu
+	Engine.time_scale = 0
+	n.visible = true
+	
+# Reset the level and reset the level teeth counter to 0
+func retry_level():
+	var n = $game_over_menu
+	Inventory.lose_teeth()
+	update_teeth_counter()
+	Engine.time_scale = 1
+	n.visible = false
+	Ui.visible = false
+
 func end_level():
 	var n = $end_menu
 	Engine.time_scale = 0
-	n.visible = true	
+	n.visible = true
 	
 func end_level_end():
 	var n = $end_menu
