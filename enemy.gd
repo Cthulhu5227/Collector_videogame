@@ -87,8 +87,7 @@ func _bounce_movement(delta):
 		if remaining_time <= 0.0:
 			enemy_sprite.stop()
 			scale.x *= -1
-			position.y *= -1
-			progress_ratio += progress_ratio_speed 
+			progress_ratio = clamp(progress_ratio, MIN_PROGRESS_RATIO, MAX_PROGRESS_RATIO)
 			remaining_time = 0.0
 			walking_pause = 0.5
 	elif progress_ratio >= MAX_PROGRESS_RATIO || progress_ratio <= MIN_PROGRESS_RATIO:
@@ -135,7 +134,7 @@ func _losing_suspicion(delta):
 		
 	sus_meter = max(sus_meter - SUS_RATE * delta, 0.0)
 	if sus_meter == 0.0:
-		walking_pause = 0.2
+		walking_pause = 0.5
 		return_to_path = true
 
 func _return_to_path(delta):

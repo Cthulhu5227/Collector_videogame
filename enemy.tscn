@@ -6,7 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://cjtsb542h1bog" path="res://assets/sprites/parent/parent3.png" id="4_hb8ge"]
 [ext_resource type="Script" uid="uid://buct0r8oeak0t" path="res://vision_cone.gd" id="6_3yqyl"]
 [ext_resource type="Texture2D" uid="uid://n6m4wdqetofa" path="res://assets/flashlight texture.jpg" id="6_wujgv"]
-[ext_resource type="Script" path="res://progressbar.gd" id="8_hb8ge"]
+[ext_resource type="Script" uid="uid://b50vun7uwn1an" path="res://progressbar.gd" id="8_hb8ge"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_e1ltt"]
 animations = [{
