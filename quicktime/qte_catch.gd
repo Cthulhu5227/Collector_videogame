@@ -7,6 +7,7 @@ var catch_bar
 var catch_bead
 var instruction_label
 var input_label
+var container_background
 
 # bar
 var bar_start_x = 0.0
@@ -35,6 +36,7 @@ func initialize(difficulty: float, node_refs):
 	catch_bead = node_refs[1]
 	instruction_label = node_refs[2]
 	input_label = node_refs[3]
+	container_background = node_refs[4]
 	
 	# set variables
 	bead_speed = difficulty * speed_constant
@@ -78,15 +80,26 @@ func _process(delta):
 				moving_right = true
 
 func _input(event):
-	if (qte_instance_active) and (event is InputEventKey) and (event.pressed) and (event.keycode == press_input):
-		var bead_pos = catch_bead.position.x
-		print(bead_pos)
-		print(bar_start_x)
-		print(bar_end_x)
-		if bead_pos >= bar_start_x and bead_pos <= bar_end_x:
-			qte_instance_active = false
-			if get_parent():
-				get_parent().receive_data_from_child(true)
-				queue_free()
-		else: 
-			bead_pos = start_x
+	if (qte_instance_active) and (event is InputEventKey) and (event.pressed):
+		if (event.keycode == press_input):
+			var bead_pos = catch_bead.position.x
+			if bead_pos >= bar_start_x and bead_pos <= bar_end_x:
+				qte_instance_active = false
+				if get_parent():
+					get_parent().receive_data_from_child(true)
+					queue_free()
+			else:
+				stun()
+		else:
+			stun()
+
+func stun():
+	instruction_label.bbcode_text = "[center][color=yellow]Darn![/color][/center]"
+	container_background.color = Color(0.424, 0.0, 0.02, 1.0)
+	qte_instance_active = false
+	catch_bead.position.x = 5
+	await get_tree().create_timer(1.0).timeout
+	instruction_label.bbcode_text = "[center][color=white]Catch![/color][/center]"
+	container_background.color = Color(0.306, 0.0, 0.306, 1.0)
+	qte_instance_active = true
+	return

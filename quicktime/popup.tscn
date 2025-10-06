@@ -1,13 +1,14 @@
-[gd_scene load_steps=2 format=3 uid="uid://bb2crqvhfom2h"]
+[gd_scene load_steps=3 format=3 uid="uid://bb2crqvhfom2h"]
 
 [ext_resource type="Script" uid="uid://2135iefg8lfn" path="res://quicktime/qte_manager.gd" id="1_sw60f"]
-[ext_resource type="Texture2D" uid="uid://d4a0vidvjg3lm" path="res://assets/fairy_test.png" id="2_stx46"]
+[ext_resource type="Texture2D" uid="uid://d4a0vidvjg3lm" path="res://assets/catch_bead.png" id="2_stx46"]
 
 [node name="Node2D" type="Node2D"]
+z_index = 1000
 script = ExtResource("1_sw60f")
 
 [node name="QTE_Container" type="Polygon2D" parent="."]
-color = Color(0.30479202, 6.540969e-05, 0.30671942, 1)
+color = Color(0.30588236, 0, 0.30588236, 1)
 polygon = PackedVector2Array(0, 0, 250, 0, 250, 75, 0, 75)
 
 [node name="Input_Container" type="Polygon2D" parent="."]
@@ -15,12 +16,18 @@ color = Color(0.17677216, 0.1377666, 0.17677216, 1)
 offset = Vector2(170, 5)
 polygon = PackedVector2Array(0, 0, 0, 65, 65, 65, 65, 0)
 
+[node name="Match_Container" type="Polygon2D" parent="."]
+visible = false
+color = Color(0.17677216, 0.1377666, 0.17677216, 1)
+offset = Vector2(135, 7.5)
+polygon = PackedVector2Array(0, 0, 0, 60, 110, 60, 110, 0)
+
 [node name="QTE_Instr_Label" type="RichTextLabel" parent="."]
 offset_left = 5.0
 offset_top = 5.0
-offset_right = 147.0
+offset_right = 130.0
 offset_bottom = 70.0
-theme_override_font_sizes/normal_font_size = 30
+theme_override_font_sizes/normal_font_size = 40
 bbcode_enabled = true
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -30,9 +37,19 @@ offset_left = 170.0
 offset_top = 5.0
 offset_right = 235.0
 offset_bottom = 70.0
-theme_override_font_sizes/normal_font_size = 14
+theme_override_font_sizes/normal_font_size = 46
 bbcode_enabled = true
-horizontal_alignment = 2
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="QTE_Match_Label" type="RichTextLabel" parent="."]
+offset_left = 135.0
+offset_top = 7.5
+offset_right = 245.0
+offset_bottom = 67.5
+theme_override_font_sizes/normal_font_size = 20
+bbcode_enabled = true
+horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Timer" type="Timer" parent="."]
@@ -48,6 +65,7 @@ color = Color(0.7447451, 0.49448317, 0, 1)
 polygon = PackedVector2Array(0, 0, 250, 0, 250, 10, 0, 10)
 
 [node name="Catch_Bead" type="Sprite2D" parent="."]
+visible = false
 position = Vector2(5, 80)
 scale = Vector2(0.05, 0.05)
 texture = ExtResource("2_stx46")
