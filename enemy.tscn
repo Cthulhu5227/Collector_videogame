@@ -55,7 +55,7 @@ offset = Vector2(260, 0)
 [node name="enemy_sight" type="CollisionPolygon2D" parent="vision_cone"]
 position = Vector2(260, 0)
 scale = Vector2(20.000008, 15.000004)
-polygon = PackedVector2Array(-13.482, 0, 10.567496, -11.466664, 10.717496, 11.199998)
+polygon = PackedVector2Array(-19.849993, 0.13333331, 10.567496, -11.466664, 10.717496, 11.199998)
 
 [node name="sus_meter" type="ProgressBar" parent="."]
 anchors_preset = 5

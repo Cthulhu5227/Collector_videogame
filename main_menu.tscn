@@ -1,5 +1,6 @@
-[gd_scene load_steps=12 format=3 uid="uid://dfr3jgs12x1bd"]
+[gd_scene load_steps=11 format=3 uid="uid://dfr3jgs12x1bd"]
 
+[ext_resource type="Texture2D" uid="uid://dsf2v8vjsxxab" path="res://assets/title screen.png" id="1_0o4t1"]
 [ext_resource type="Texture2D" uid="uid://bdjkb2g2hs0ws" path="res://assets/play_test.png" id="1_8qtwp"]
 [ext_resource type="Texture2D" uid="uid://jdgfcuenow48" path="res://assets/play_hover_test.png" id="2_dy7ct"]
 [ext_resource type="Script" uid="uid://l2woama34ovk" path="res://play_button.gd" id="3_0o4t1"]
@@ -9,8 +10,6 @@
 [ext_resource type="Texture2D" uid="uid://d4lasqjwyn2xn" path="res://assets/quit_test.png" id="6_iotk1"]
 [ext_resource type="Texture2D" uid="uid://c5kahe2avqb5h" path="res://assets/quit_hover_test.png" id="7_w44g7"]
 [ext_resource type="Script" uid="uid://bslujryosl65c" path="res://quit_button.gd" id="8_cm266"]
-[ext_resource type="Texture2D" uid="uid://cri34ib356pr2" path="res://assets/tiles_test.png" id="10_0k4wn"]
-[ext_resource type="Texture2D" uid="uid://d05rtt2fhtkah" path="res://assets/title_card_test.png" id="11_j5v2v"]
 
 [node name="Main Menu" type="Control"]
 layout_mode = 3
@@ -27,22 +26,14 @@ offset_left = 30.0
 offset_top = -12.0
 offset_right = 1183.0
 offset_bottom = 636.0
-texture = ExtResource("10_0k4wn")
-
-[node name="title" type="TextureRect" parent="."]
-layout_mode = 0
-offset_left = 5.0
-offset_top = 38.0
-offset_right = 516.0
-offset_bottom = 250.0
-texture = ExtResource("11_j5v2v")
+texture = ExtResource("1_0o4t1")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="."]
 layout_mode = 0
-offset_left = 398.0
-offset_top = 276.0
-offset_right = 790.0
-offset_bottom = 340.0
+offset_left = 250.0
+offset_top = 500.0
+offset_right = 642.0
+offset_bottom = 564.0
 
 [node name="play_button" type="TextureButton" parent="HBoxContainer"]
 layout_mode = 2
@@ -61,6 +52,14 @@ layout_mode = 2
 texture_normal = ExtResource("6_iotk1")
 texture_hover = ExtResource("7_w44g7")
 script = ExtResource("8_cm266")
+
+[node name="Title" type="Label" parent="."]
+layout_mode = 0
+offset_left = 532.0
+offset_top = 41.0
+offset_right = 630.0
+offset_bottom = 58.0
+text = "Teeth Taker"
 
 [connection signal="pressed" from="HBoxContainer/play_button" to="HBoxContainer/play_button" method="_on_pressed"]
 [connection signal="pressed" from="HBoxContainer/settings_button" to="HBoxContainer/play_button" method="_on_settings_button_pressed"]

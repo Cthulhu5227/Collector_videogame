@@ -1,7 +1,7 @@
 [gd_scene load_steps=8 format=3 uid="uid://vwwap5brwk8m"]
 
 [ext_resource type="Script" uid="uid://emsltq2jrsih" path="res://level_menu.gd" id="1_lnidy"]
-[ext_resource type="Texture2D" uid="uid://cri34ib356pr2" path="res://assets/tiles_test.png" id="1_mcy63"]
+[ext_resource type="Texture2D" uid="uid://dsf2v8vjsxxab" path="res://assets/title screen.png" id="2_gd4f1"]
 [ext_resource type="Texture2D" uid="uid://d4lasqjwyn2xn" path="res://assets/quit_test.png" id="2_w32vy"]
 [ext_resource type="Texture2D" uid="uid://c5kahe2avqb5h" path="res://assets/quit_hover_test.png" id="3_gd4f1"]
 [ext_resource type="Script" uid="uid://bslujryosl65c" path="res://quit_button.gd" id="4_7blhc"]
@@ -26,7 +26,7 @@ offset_left = 30.0
 offset_top = -12.0
 offset_right = 1183.0
 offset_bottom = 636.0
-texture = ExtResource("1_mcy63")
+texture = ExtResource("2_gd4f1")
 
 [node name="Label" type="Label" parent="."]
 layout_mode = 0

@@ -54,7 +54,7 @@ func _ready():
 func _process(delta):
 	
 	if !lost_sus:
-		_lost_sus(delta)
+		_lost_suspicion(delta)
 	elif !tracking_player && sus_meter == 0.0:
 		_bounce_movement(delta)
 	elif tracking_player && sus_meter >= 0.0:
@@ -69,11 +69,15 @@ func _player_spotted():
 	if !tracking_player && sus_meter > 0.0:
 		tracking_player = true
 		rotation_speed = 0.75
+
 	elif !tracking_player && sus_meter == 0.0:
 		prev_enemy_direction = rotation
 		prev_enemy_pos = global_position
 		Ui.get_node("audio_control").play_sound(1)
 		tracking_player = true
+		if !lost_sus:
+			lost_sus = true
+			
 		rotation_speed = 0.75
 
 func _player_left():
@@ -110,7 +114,6 @@ func _bounce_movement(delta):
 func _detecting_player(delta):
 	enemy_sprite.play()
 	# Match the vision cone to the enemy's rotation
-	
 	# Rotate to face player
 	var direction = player.global_position - global_position
 	var target_angle = direction.angle()
@@ -122,8 +125,7 @@ func _detecting_player(delta):
 	global_position += (player.global_position - global_position).normalized() * enemy_speed * delta
 	
 	if sus_meter > SUS_METER_MAX:
-		#game_over()
-		#print("Game Over")
+		#Ui.game_over_screen()
 		pass
 	else:
 		sus_meter += SUS_RATE * delta
@@ -148,14 +150,14 @@ func _losing_suspicion(delta):
 	sus_meter = max(sus_meter - SUS_RATE * delta, 0.0)
 	if sus_meter == 0.0:
 		lost_sus = false
-		scale.x *= -1
 	
-func _lost_sus(delta):
+func _lost_suspicion(delta):
 	var point = get_global_point_on_path(get_parent(), progress_ratio)
 	position = position.move_toward(point, enemy_speed * delta)
 	if position == point:
 		lost_sus = true
-		scale.x *= -1
+	else:
+		look_at(point)
 	
 func get_global_point_on_path(path2d: Path2D, ratio: float) -> Vector2:
 	var curve := path2d.curve
