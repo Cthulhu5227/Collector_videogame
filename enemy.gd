@@ -7,7 +7,6 @@ class_name Enemy
 # To create a stationary enemy just add the enemy node into the scene with
 # a Path2D node
 
-
 @onready var vision_cone = get_node("vision_cone")
 @onready var enemy_sprite = get_node("enemy_sprite")
 @onready var player = get_node("../../player")

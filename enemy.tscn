@@ -1,12 +1,12 @@
-[gd_scene load_steps=9 format=3 uid="uid://dhxxy4paeggpd"]
+[gd_scene load_steps=10 format=3 uid="uid://dhxxy4paeggpd"]
 
 [ext_resource type="Script" uid="uid://bg8lihd326sh2" path="res://enemy.gd" id="1_ak6rt"]
 [ext_resource type="Texture2D" uid="uid://dj5enkccgrvce" path="res://assets/sprites/parent/parent1.png" id="2_3yqyl"]
 [ext_resource type="Texture2D" uid="uid://cgwgpsr1243di" path="res://assets/sprites/parent/parent2.png" id="3_wujgv"]
 [ext_resource type="Texture2D" uid="uid://cjtsb542h1bog" path="res://assets/sprites/parent/parent3.png" id="4_hb8ge"]
-[ext_resource type="Script" uid="uid://dg8lpe7nt5e2d" path="res://sus_meter.gd" id="4_iifgy"]
 [ext_resource type="Script" uid="uid://buct0r8oeak0t" path="res://vision_cone.gd" id="6_3yqyl"]
 [ext_resource type="Texture2D" uid="uid://n6m4wdqetofa" path="res://assets/flashlight texture.jpg" id="6_wujgv"]
+[ext_resource type="Script" uid="uid://b50vun7uwn1an" path="res://progressbar.gd" id="8_hb8ge"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_e1ltt"]
 animations = [{
@@ -27,6 +27,10 @@ animations = [{
 "name": &"default",
 "speed": 5.0
 }]
+
+[sub_resource type="GDScript" id="GDScript_hb8ge"]
+script/source = "extends Polygon2D
+"
 
 [node name="enemy" type="PathFollow2D"]
 loop = false
@@ -57,14 +61,14 @@ position = Vector2(260, 0)
 scale = Vector2(20.000008, 15.000004)
 polygon = PackedVector2Array(-12.549995, -2.2666662, -8.599997, -2.5333328, 10.567496, -11.466664, 10.717496, 11.199998, -8.749996, 2.3999996, -12.449995, 2.4666662, -15.999994, 5.9333324, -16.149994, -5.1333323)
 
-[node name="sus_meter" type="ProgressBar" parent="."]
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = 1.0
-offset_top = -100.0
-offset_right = 5.0
-offset_bottom = -73.0
-grow_horizontal = 2
-size_flags_horizontal = 4
-script = ExtResource("4_iifgy")
+[node name="bar_background" type="Polygon2D" parent="."]
+position = Vector2(-154, -79)
+color = Color(0, 0, 0, 1)
+polygon = PackedVector2Array(0, 0, 0, 160, 15, 160, 15, 44.76335, 15, 0)
+script = SubResource("GDScript_hb8ge")
+
+[node name="sus_bar" type="Polygon2D" parent="."]
+position = Vector2(-154, -79)
+color = Color(0.7543768, 0.35327718, 0.12484401, 1)
+polygon = PackedVector2Array(0, 0, 0, 160, 15, 160, 15, 0)
+script = ExtResource("8_hb8ge")

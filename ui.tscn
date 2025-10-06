@@ -74,6 +74,7 @@ volume_db = -27.67
 script = ExtResource("8_waa4j")
 
 [node name="end_menu" type="Control" parent="."]
+visible = false
 layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
