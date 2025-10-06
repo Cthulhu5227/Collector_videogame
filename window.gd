@@ -11,7 +11,7 @@ func _on_area_2d_body_exited(body: Node2D) -> void:
 		tutorial.visible = false
 		
 func has_all_teeth():
-	return get_tree().get_nodes_in_group("bed").size() >= Inventory.teeth
+	return get_tree().get_nodes_in_group("bed").size() <= Inventory.teeth
 		
 
 func _input(event: InputEvent):

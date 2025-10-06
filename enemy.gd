@@ -65,6 +65,7 @@ func _player_spotted():
 	elif !tracking_player && sus_meter == 0.0:
 		prev_enemy_direction = rotation
 		prev_enemy_pos = global_position
+		Ui.get_node("audio_control").play_sound(1)
 		tracking_player = true
 
 func _player_left():

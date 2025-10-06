@@ -27,9 +27,23 @@ func _on_body_exited(body):
 
 
 func _can_see_player(player: CharacterBody2D) -> bool:
-	
-	var space_state: PhysicsDirectSpaceState2D = get_world_2d().direct_space_state
-	var query: PhysicsRayQueryParameters2D = PhysicsRayQueryParameters2D.create(enemy.position, player.position, 1)
-	var result: Dictionary = space_state.intersect_ray(query)
-	
-	return result.size() != 0
+	var space_state = get_world_2d().direct_space_state
+
+	var query = PhysicsRayQueryParameters2D.new()
+	query.from = global_position
+	query.to = player.global_position
+	query.exclude = [self, player]
+	query.collide_with_areas = true
+	query.collide_with_bodies = true
+
+	var result = space_state.intersect_ray(query)
+
+	if result:
+			print("Ray hit:", result.collider.name)
+		
+	if result:
+		# Something is blocking the view
+		if result.collider != player:
+			return false
+
+	return true  # Either hit the player directly, or nothing at all
