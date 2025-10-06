@@ -51,7 +51,6 @@ func _ready():
 # If not tracking player and still sus, still be stopped and look where player last was.
 #	Decrement sus meter until 0
 func _process(delta):
-	
 	if !lost_sus:
 		_lost_suspicion(delta)
 	elif !tracking_player && sus_meter == 0.0:
@@ -132,7 +131,6 @@ func _detecting_player(delta):
 func game_over():
 	Ui.end_level()
 
-
 func _losing_suspicion(delta):
 	enemy_sprite.play()
 	# Rotate to face player
@@ -149,7 +147,7 @@ func _losing_suspicion(delta):
 	sus_meter = max(sus_meter - SUS_RATE * delta, 0.0)
 	if sus_meter == 0.0:
 		lost_sus = false
-	
+
 func _lost_suspicion(delta):
 	var point = get_global_point_on_path(get_parent(), progress_ratio)
 	position = position.move_toward(point, enemy_speed * delta)

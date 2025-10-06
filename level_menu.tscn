@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://vwwap5brwk8m"]
+[gd_scene load_steps=10 format=3 uid="uid://vwwap5brwk8m"]
 
 [ext_resource type="Script" uid="uid://emsltq2jrsih" path="res://level_menu.gd" id="1_lnidy"]
 [ext_resource type="Texture2D" uid="uid://dsf2v8vjsxxab" path="res://assets/title screen.png" id="2_gd4f1"]
@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://cxi3kmc7fauk3" path="res://assets/sprites/wings_q.png" id="4_gd4f1"]
 [ext_resource type="Texture2D" uid="uid://cpjuti0dcgfdl" path="res://assets/sprites/wings_q_hover.png" id="5_gd4f1"]
 [ext_resource type="Texture2D" uid="uid://o5q36v7ihw3c" path="res://assets/sprites/house_icon.png" id="7_gd4f1"]
+[ext_resource type="Texture2D" uid="uid://crufvkjd8yght" path="res://assets/house_icon_hover.png" id="8_7blhc"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_y1rhc"]
 font = ExtResource("3_7blhc")
@@ -68,6 +69,7 @@ offset_top = 170.01703
 offset_right = 2030.7861
 offset_bottom = 270.01703
 texture_normal = ExtResource("7_gd4f1")
+texture_hover = ExtResource("8_7blhc")
 
 [node name="Label" type="Label" parent="level_button"]
 layout_mode = 0
