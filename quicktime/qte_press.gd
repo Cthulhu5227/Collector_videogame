@@ -6,8 +6,11 @@ var timer
 var timer_bar
 var instruction_label
 var input_label
+var container_background
+
 
 # timer bar stuff
+var total_quantity = 0
 var total_duration := 0
 var nec_progress = 1
 var cur_progress = 0
@@ -21,15 +24,17 @@ var capital_letters = [
 	"N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"
 ]
 
-
-func initialize(duration: int, node_refs):	
+func initialize(duration, node_refs):	
+	# need to actually divide them
+	total_quantity = duration
+	var input = get_parent().get_random_subset(capital_letters, total_quantity)
 	
-	var input = get_parent().get_random_subset(capital_letters, duration)
 	# get qte elements
 	timer = node_refs[0]
 	timer_bar = node_refs[1]
 	instruction_label = node_refs[2]
 	input_label = node_refs[3]
+	container_background = node_refs[4]
 	
 	# set up timer
 	timer.connect("timeout", Callable(self, "_on_timer_timeout"))
@@ -76,6 +81,7 @@ func _input(event):
 				_update_input_label()
 				timer.start()
 		else:
+			stun()
 			cur_progress = 0
 			cur_input = OS.find_keycode_from_string(press_input[cur_progress])
 			_update_input_label()
@@ -85,5 +91,16 @@ func _update_input_label():
 	var display_str = ""
 	display_str += "[color=gray]%s[/color] " % press_input[cur_progress] 
 	input_label.bbcode_text = "[center]%s[/center]" % display_str
-	
-	# add pressing two buttons at once?
+
+func stun():
+	instruction_label.bbcode_text = "[center][color=yellow]Darn![/color][/center]"
+	container_background.color = Color(0.424, 0.0, 0.02, 1.0)
+	qte_instance_active = false
+	timer.start()
+	timer.stop()
+	await get_tree().create_timer(1.0).timeout
+	instruction_label.bbcode_text = "[center][color=white]Press![/color][/center]"
+	container_background.color = Color(0.306, 0.0, 0.306, 1.0)
+	qte_instance_active = true
+	timer.start()
+	return
