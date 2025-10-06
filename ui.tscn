@@ -1,18 +1,20 @@
-[gd_scene load_steps=16 format=3 uid="uid://c3dxvf2x81wwt"]
+[gd_scene load_steps=19 format=3 uid="uid://c3dxvf2x81wwt"]
 
 [ext_resource type="Script" uid="uid://h5gvvejyycn7" path="res://ui.gd" id="1_fyqef"]
-[ext_resource type="Script" path="res://pause_menu.gd" id="2_m6e0p"]
-[ext_resource type="Script" path="res://quit_button.gd" id="3_27fn8"]
+[ext_resource type="Script" uid="uid://c15j6bq2i7nrk" path="res://pause_menu.gd" id="2_m6e0p"]
+[ext_resource type="Script" uid="uid://bslujryosl65c" path="res://quit_button.gd" id="3_27fn8"]
 [ext_resource type="Texture2D" uid="uid://d4lasqjwyn2xn" path="res://assets/quit_test.png" id="3_nltto"]
 [ext_resource type="Texture2D" uid="uid://c5kahe2avqb5h" path="res://assets/quit_hover_test.png" id="4_ibotj"]
 [ext_resource type="Texture2D" uid="uid://ctlxnagfu242c" path="res://assets/tooth.png" id="6_e2l4f"]
 [ext_resource type="PackedScene" uid="uid://22f118a2rwec" path="res://audio_control.tscn" id="7_y4yjw"]
-[ext_resource type="Texture2D" uid="uid://1vlx4jojkgpo" path="res://assets/continue_test.png" id="8_irxef"]
-[ext_resource type="Script" path="res://continue_button.gd" id="8_ok7cu"]
-[ext_resource type="Script" path="res://music_player.gd" id="8_waa4j"]
-[ext_resource type="Texture2D" uid="uid://bl7pjkctxytcw" path="res://assets/continue_hover_test.png" id="9_e2l4f"]
+[ext_resource type="Script" uid="uid://cl566b8lrhplm" path="res://continue_button.gd" id="8_ok7cu"]
+[ext_resource type="Script" uid="uid://u727i38mquow" path="res://music_player.gd" id="8_waa4j"]
+[ext_resource type="Texture2D" uid="uid://cxi3kmc7fauk3" path="res://assets/sprites/wings_q.png" id="9_7rqds"]
+[ext_resource type="Texture2D" uid="uid://cpjuti0dcgfdl" path="res://assets/sprites/wings_q_hover.png" id="10_nvb2n"]
 [ext_resource type="Script" uid="uid://bftp35jn4256y" path="res://retry_button.gd" id="11_e2l4f"]
 [ext_resource type="Texture2D" uid="uid://crqvtq1fgv7u3" path="res://assets/retry_test.png" id="11_gs482"]
+[ext_resource type="Texture2D" uid="uid://8sv1g5kl876q" path="res://assets/sprites/wings_n.png" id="11_os5c7"]
+[ext_resource type="Texture2D" uid="uid://jlm2agjo84dy" path="res://assets/sprites/wings_n_hover.png" id="12_b2p7n"]
 [ext_resource type="Texture2D" uid="uid://0etiu1j7lfms" path="res://assets/retry_hover_test.png" id="12_cxd00"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_n5ude"]
@@ -50,26 +52,18 @@ offset_bottom = 40.0
 
 [node name="Label" type="Label" parent="teeth_counter"]
 layout_mode = 0
-offset_left = 196.0
-offset_right = 287.0
-offset_bottom = 53.0
+offset_left = -36.0
+offset_right = 55.0
+offset_bottom = 69.0
 text = "0"
-label_settings = SubResource("LabelSettings_n5ude")
-
-[node name="Label2" type="Label" parent="teeth_counter"]
-layout_mode = 0
-offset_left = -23.0
-offset_top = 2.0
-offset_right = 113.0
-offset_bottom = 55.0
-text = "Teeth "
 label_settings = SubResource("LabelSettings_n5ude")
 
 [node name="tooth" type="TextureRect" parent="teeth_counter"]
 layout_mode = 0
-offset_left = 230.0
-offset_right = 294.00006
-offset_bottom = 64.0
+offset_left = -110.0
+offset_top = 2.0
+offset_right = -45.99994
+offset_bottom = 66.0
 texture = ExtResource("6_e2l4f")
 
 [node name="audio_control" parent="." instance=ExtResource("7_y4yjw")]
@@ -80,7 +74,6 @@ volume_db = -27.67
 script = ExtResource("8_waa4j")
 
 [node name="end_menu" type="Control" parent="."]
-visible = false
 layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
@@ -103,22 +96,22 @@ offset_bottom = 489.0
 
 [node name="quit_button" type="TextureButton" parent="end_menu"]
 layout_mode = 0
-offset_left = 688.0
-offset_top = 445.0
-offset_right = 816.0
-offset_bottom = 509.0
-texture_normal = ExtResource("3_nltto")
-texture_hover = ExtResource("4_ibotj")
+offset_left = 643.0
+offset_top = 330.0
+offset_right = 843.0
+offset_bottom = 530.0
+texture_normal = ExtResource("9_7rqds")
+texture_hover = ExtResource("10_nvb2n")
 script = ExtResource("3_27fn8")
 
 [node name="continue_button" type="TextureButton" parent="end_menu"]
 layout_mode = 0
-offset_left = 234.0
-offset_top = 443.0
-offset_right = 362.0
-offset_bottom = 507.0
-texture_normal = ExtResource("8_irxef")
-texture_hover = ExtResource("9_e2l4f")
+offset_left = 187.0
+offset_top = 327.0
+offset_right = 387.0
+offset_bottom = 527.0
+texture_normal = ExtResource("11_os5c7")
+texture_hover = ExtResource("12_b2p7n")
 script = ExtResource("8_ok7cu")
 
 [node name="Label" type="Label" parent="end_menu"]
@@ -127,8 +120,9 @@ offset_left = 205.0
 offset_top = 124.0
 offset_right = 831.0
 offset_bottom = 241.0
-text = "You Win! The Teeth are all 
-your's for your Tooth castle"
+text = "Phew!
+You made it out with all
+teeth collected."
 label_settings = SubResource("LabelSettings_y4yjw")
 horizontal_alignment = 1
 
