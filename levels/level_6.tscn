@@ -1,0 +1,26 @@
+[gd_scene load_steps=7 format=3 uid="uid://bcgkkrfg715dd"]
+
+[ext_resource type="PackedScene" uid="uid://bcks5aa6qr3t0" path="res://lightfx/dimness.tscn" id="1_rqsg2"]
+[ext_resource type="PackedScene" uid="uid://henuxxm7oxlp" path="res://camera_2d.tscn" id="2_fpvgn"]
+[ext_resource type="PackedScene" uid="uid://dwsk6befvaf0a" path="res://player.tscn" id="3_xn6mk"]
+[ext_resource type="PackedScene" uid="uid://dbqx4kfoya38a" path="res://bed.tscn" id="4_3t5n2"]
+[ext_resource type="PackedScene" uid="uid://c3th6ihcugi4r" path="res://basic_room.tscn" id="5_v2dqh"]
+[ext_resource type="PackedScene" uid="uid://doyg3xf8tfm1n" path="res://window.tscn" id="6_nu44e"]
+
+[node name="Level" type="Node2D"]
+
+[node name="CanvasModulate" parent="." instance=ExtResource("1_rqsg2")]
+color = Color(0.57254905, 0.5529412, 0.73333335, 1)
+
+[node name="Camera2D" parent="." instance=ExtResource("2_fpvgn")]
+
+[node name="player" parent="." instance=ExtResource("3_xn6mk")]
+
+[node name="bed" parent="." instance=ExtResource("4_3t5n2")]
+position = Vector2(440, 189)
+
+[node name="basic_room" parent="." instance=ExtResource("5_v2dqh")]
+
+[node name="window" parent="." instance=ExtResource("6_nu44e")]
+position = Vector2(-108, -11)
+rotation = 1.5707964

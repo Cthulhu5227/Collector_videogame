@@ -129,6 +129,59 @@ teeth collected."
 label_settings = SubResource("LabelSettings_y4yjw")
 horizontal_alignment = 1
 
+[node name="end_menu" type="Control" parent="end_menu"]
+visible = false
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="ColorRect" type="ColorRect" parent="end_menu/end_menu"]
+layout_mode = 0
+offset_left = 139.0
+offset_top = 39.0
+offset_right = 902.0
+offset_bottom = 594.0
+color = Color(1, 1, 0, 1)
+
+[node name="ColorRect" type="ColorRect" parent="end_menu/end_menu/ColorRect"]
+layout_mode = 0
+offset_left = 47.0
+offset_top = 47.0
+offset_right = 703.0
+offset_bottom = 489.0
+
+[node name="quit_button" type="TextureButton" parent="end_menu/end_menu"]
+layout_mode = 0
+offset_left = 643.0
+offset_top = 330.0
+offset_right = 843.0
+offset_bottom = 530.0
+texture_normal = ExtResource("9_7rqds")
+texture_hover = ExtResource("10_nvb2n")
+script = ExtResource("3_27fn8")
+
+[node name="continue_button" type="TextureButton" parent="end_menu/end_menu"]
+layout_mode = 0
+offset_left = 187.0
+offset_top = 327.0
+offset_right = 387.0
+offset_bottom = 527.0
+texture_normal = ExtResource("11_os5c7")
+texture_hover = ExtResource("12_b2p7n")
+script = ExtResource("8_ok7cu")
+
+[node name="Label" type="Label" parent="end_menu/end_menu"]
+layout_mode = 0
+offset_left = 205.0
+offset_top = 124.0
+offset_right = 831.0
+offset_bottom = 241.0
+text = "Phew!
+You made it out with all
+teeth collected."
+label_settings = SubResource("LabelSettings_y4yjw")
+horizontal_alignment = 1
+
 [node name="game_over_menu" type="Control" parent="."]
 visible = false
 layout_mode = 3
