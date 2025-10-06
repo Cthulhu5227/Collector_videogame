@@ -65,6 +65,9 @@ func _input(event):
 func _physics_process(delta):
 	## check for boxes and such 
 	$AnimationPlayer.play("oscilate")	
+	if selecting:
+		target = get_global_mouse_position()
+	
 	for bed in get_tree().get_nodes_in_group("bed"):
 			if global_position.distance_to(bed.global_position) < interact_range and not bed.used: 
 				tutorial.visible = true 

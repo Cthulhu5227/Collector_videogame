@@ -1,5 +1,5 @@
 extends Control
-var number_of_levels = 3
+var number_of_levels = 4
 @onready var level_button = $level_button
 @onready var level_container = $level_container
 
