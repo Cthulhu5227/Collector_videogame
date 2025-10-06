@@ -7,8 +7,6 @@ var qte_success := false
 
 func init(qte_type, qte_diff):	
 	var diff_array = []
-	qte_type = 3
-	qte_diff = 2
 	match qte_type:
 		0:
 			if qte_diff == 1:
