@@ -13,7 +13,7 @@ class_name Enemy
 @onready var player = get_node("../../player")
 
 var progress_ratio_speed := 0.2
-var enemy_speed := 3
+var enemy_speed := 50
 var rotation_speed := 0.5
 
 # Wait time until the enemy turns around and continues on their path
@@ -21,10 +21,11 @@ var rotation_speed := 0.5
 var remaining_time := 0.0
 
 @export var sus_meter := 0.0
-var SUS_RATE := 50
+var SUS_RATE := 25
 var SUS_METER_MAX := 100.0
 
 var tracking_player := false
+var lost_sus := true
 var STARTING_PROGRESS = 0.11
 
 var MIN_PROGRESS_RATIO := 0.05
@@ -51,7 +52,10 @@ func _ready():
 # If not tracking player and still sus, still be stopped and look where player last was.
 #	Decrement sus meter until 0
 func _process(delta):
-	if !tracking_player && sus_meter == 0.0:
+	
+	if !lost_sus:
+		_lost_sus(delta)
+	elif !tracking_player && sus_meter == 0.0:
 		_bounce_movement(delta)
 	elif tracking_player && sus_meter >= 0.0:
 		_detecting_player(delta)
@@ -64,16 +68,18 @@ func _process(delta):
 func _player_spotted():
 	if !tracking_player && sus_meter > 0.0:
 		tracking_player = true
+		rotation_speed = 0.75
 	elif !tracking_player && sus_meter == 0.0:
 		prev_enemy_direction = rotation
 		prev_enemy_pos = global_position
 		Ui.get_node("audio_control").play_sound(1)
 		tracking_player = true
+		rotation_speed = 0.75
 
 func _player_left():
 	tracking_player = false
+	rotation_speed = 0.25
 	
-
 func _bounce_movement(delta):
 	if waking_pause > 0.0:
 		waking_pause = max(waking_pause - delta, 0.0)
@@ -83,7 +89,7 @@ func _bounce_movement(delta):
 			enemy_sprite.stop()
 			scale.x *= -1
 			position.y *= -1
-			progress_ratio += progress_ratio_speed / 10
+			progress_ratio += progress_ratio_speed 
 			remaining_time = 0.0
 			waking_pause = 0.5
 	elif progress_ratio >= MAX_PROGRESS_RATIO || progress_ratio <= MIN_PROGRESS_RATIO:
@@ -99,10 +105,10 @@ func _bounce_movement(delta):
 		var speed_factor = 1.0
 		if distance_from_edge < accel_distance:
 			speed_factor = clamp(distance_from_edge / accel_distance, 0.2, 1.0)
-		progress_ratio += delta * progress_ratio_speed * speed_factor
+		progress_ratio += delta * progress_ratio_speed * speed_factor / (get_parent().curve.get_baked_length()/750)
 
 func _detecting_player(delta):
-	enemy_sprite.stop()
+	enemy_sprite.play()
 	# Match the vision cone to the enemy's rotation
 	
 	# Rotate to face player
@@ -116,14 +122,49 @@ func _detecting_player(delta):
 	global_position += (player.global_position - global_position).normalized() * enemy_speed * delta
 	
 	if sus_meter > SUS_METER_MAX:
-		pass
+		#game_over()
 		#print("Game Over")
-		# End game
+		pass
 	else:
 		sus_meter += SUS_RATE * delta
+		
+func game_over():
+	Ui.end_level()
+
 
 func _losing_suspicion(delta):
-	enemy_sprite.stop()
+	enemy_sprite.play()
+	# Rotate to face player
+	var direction = player.global_position - global_position
+	var target_angle = direction.angle()
+	if progress_ratio_speed < 0:
+		target_angle += PI
+	rotation = lerp_angle(rotation, target_angle, delta * rotation_speed)
+	
+	# Move towards player
+	global_position += (player.global_position - global_position).normalized() * enemy_speed * delta
 	if sus_meter < 0.8 and sus_meter > 0.0:
 		rotation = lerp_angle(rotation, prev_enemy_direction, delta * rotation_speed)
 	sus_meter = max(sus_meter - SUS_RATE * delta, 0.0)
+	if sus_meter == 0.0:
+		lost_sus = false
+		scale.x *= -1
+	
+func _lost_sus(delta):
+	var point = get_global_point_on_path(get_parent(), progress_ratio)
+	position = position.move_toward(point, enemy_speed * delta)
+	if position == point:
+		lost_sus = true
+		scale.x *= -1
+	
+func get_global_point_on_path(path2d: Path2D, ratio: float) -> Vector2:
+	var curve := path2d.curve
+	if curve == null or curve.get_point_count() < 2:
+		return path2d.global_position  # Fallback if path is empty or invalid
+
+	var length = curve.get_baked_length()
+	var distance = clamp(ratio, 0.0, 1.0) * length
+	var local_point = curve.sample_baked(distance)
+	var global_point = path2d.to_global(local_point)
+	return global_point
+	
