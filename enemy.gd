@@ -20,7 +20,7 @@ var rotation_speed := 0.5
 var remaining_time := 0.0
 
 @export var sus_meter := 0.0
-var SUS_RATE := 25
+var SUS_RATE := 30
 var SUS_METER_MAX := 100.0
 
 var tracking_player := false
