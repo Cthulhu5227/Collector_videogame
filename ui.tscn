@@ -11,7 +11,7 @@
 [ext_resource type="Script" uid="uid://u727i38mquow" path="res://music_player.gd" id="8_waa4j"]
 [ext_resource type="Texture2D" uid="uid://cxi3kmc7fauk3" path="res://assets/sprites/wings_q.png" id="9_7rqds"]
 [ext_resource type="Texture2D" uid="uid://cpjuti0dcgfdl" path="res://assets/sprites/wings_q_hover.png" id="10_nvb2n"]
-[ext_resource type="Script" uid="uid://bftp35jn4256y" path="res://retry_button.gd" id="11_e2l4f"]
+[ext_resource type="Script" path="res://retry_button.gd" id="11_e2l4f"]
 [ext_resource type="Texture2D" uid="uid://8sv1g5kl876q" path="res://assets/sprites/wings_n.png" id="11_os5c7"]
 [ext_resource type="Texture2D" uid="uid://jlm2agjo84dy" path="res://assets/sprites/wings_n_hover.png" id="12_b2p7n"]
 [ext_resource type="Texture2D" uid="uid://bsfx85sma2rn2" path="res://assets/sprites/wings_r.png" id="14_7rqds"]
@@ -37,8 +37,10 @@ script = ExtResource("2_m6e0p")
 
 [node name="quit_button" type="TextureButton" parent="pause_menu"]
 layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
+offset_left = 29.0
+offset_top = 112.0
+offset_right = 157.0
+offset_bottom = 176.0
 texture_normal = ExtResource("3_nltto")
 texture_hover = ExtResource("4_ibotj")
 script = ExtResource("3_27fn8")
@@ -128,6 +130,7 @@ label_settings = SubResource("LabelSettings_y4yjw")
 horizontal_alignment = 1
 
 [node name="game_over_menu" type="Control" parent="."]
+visible = false
 layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
