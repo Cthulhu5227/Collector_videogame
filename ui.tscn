@@ -1,10 +1,8 @@
-[gd_scene load_steps=19 format=3 uid="uid://c3dxvf2x81wwt"]
+[gd_scene load_steps=17 format=3 uid="uid://c3dxvf2x81wwt"]
 
 [ext_resource type="Script" uid="uid://h5gvvejyycn7" path="res://ui.gd" id="1_fyqef"]
 [ext_resource type="Script" uid="uid://c15j6bq2i7nrk" path="res://pause_menu.gd" id="2_m6e0p"]
 [ext_resource type="Script" uid="uid://bslujryosl65c" path="res://quit_button.gd" id="3_27fn8"]
-[ext_resource type="Texture2D" uid="uid://d4lasqjwyn2xn" path="res://assets/quit_test.png" id="3_nltto"]
-[ext_resource type="Texture2D" uid="uid://c5kahe2avqb5h" path="res://assets/quit_hover_test.png" id="4_ibotj"]
 [ext_resource type="Texture2D" uid="uid://ctlxnagfu242c" path="res://assets/tooth.png" id="6_e2l4f"]
 [ext_resource type="PackedScene" uid="uid://22f118a2rwec" path="res://audio_control.tscn" id="7_y4yjw"]
 [ext_resource type="Script" uid="uid://cl566b8lrhplm" path="res://continue_button.gd" id="8_ok7cu"]
@@ -37,12 +35,12 @@ script = ExtResource("2_m6e0p")
 
 [node name="quit_button" type="TextureButton" parent="pause_menu"]
 layout_mode = 0
-offset_left = 29.0
-offset_top = 112.0
-offset_right = 157.0
-offset_bottom = 176.0
-texture_normal = ExtResource("3_nltto")
-texture_hover = ExtResource("4_ibotj")
+offset_left = 957.0
+offset_top = -20.0
+offset_right = 1157.0
+offset_bottom = 180.0
+texture_normal = ExtResource("9_7rqds")
+texture_hover = ExtResource("10_nvb2n")
 script = ExtResource("3_27fn8")
 
 [node name="teeth_counter" type="Control" parent="."]

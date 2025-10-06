@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=4 uid="uid://cww3yce5iedp3"]
+[gd_scene load_steps=14 format=4 uid="uid://lpbyqx2e3b0p"]
 
 [ext_resource type="PackedScene" uid="uid://bcks5aa6qr3t0" path="res://lightfx/dimness.tscn" id="1_vendn"]
 [ext_resource type="PackedScene" uid="uid://henuxxm7oxlp" path="res://camera_2d.tscn" id="2_urq6f"]
@@ -32,6 +32,12 @@ _data = {
 "points": PackedVector2Array(0, 0, 0, 0, 591, -734, 0, 0, 0, 0, 319, -404, 0, 0, 0, 0, 16, -696, 0, 0, 0, 0, -309, -440, 0, 0, 0, 0, -734, -741, 0, 0, 0, 0, -1173, -451, 0, 0, 0, 0, -1690, -775)
 }
 point_count = 7
+
+[sub_resource type="Curve2D" id="Curve2D_86l0o"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, -2056, -912, 0, 0, 0, 0, -1643, -770, 0, 0, 0, 0, -1967, -668, 0, 0, 0, 0, -2019, -261)
+}
+point_count = 4
 
 [node name="Level" type="Node2D"]
 
@@ -125,3 +131,10 @@ curve = SubResource("Curve2D_nyknj")
 [node name="enemy" parent="Path2D" instance=ExtResource("8_q3845")]
 position = Vector2(591, -734)
 rotation = 2.2601454
+
+[node name="Path2D5" type="Path2D" parent="."]
+curve = SubResource("Curve2D_86l0o")
+
+[node name="enemy" parent="Path2D5" instance=ExtResource("8_q3845")]
+position = Vector2(-2056, -912)
+rotation = 0.33116373

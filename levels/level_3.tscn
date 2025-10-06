@@ -39,7 +39,7 @@ position = Vector2(-210, -366)
 rotation = 3.1415927
 
 [node name="player" parent="." instance=ExtResource("2_8l0e1")]
-position = Vector2(-202, -339)
+position = Vector2(-211, -340)
 
 [node name="Path2D" type="Path2D" parent="."]
 position = Vector2(0.8922043, 0)

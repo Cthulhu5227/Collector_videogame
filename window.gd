@@ -4,6 +4,7 @@ var useable = false
 
 func _ready():
 	useable = false
+	label.visible = false
 	label.rotation =  -rotation
 	
 func _on_area_2d_body_entered(body: Node2D) -> void:
@@ -11,7 +12,7 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 		label.visible = true
 		useable = true
 		if !has_all_teeth():
-			label.text = "Get more teeth!"
+			label.text = "Collect %d more teeth!" % (get_tree().get_nodes_in_group("bed").size() - Inventory.teeth)
 		else:
 			label.text = "Press E to Leave"
 func _on_area_2d_body_exited(body: Node2D) -> void:
