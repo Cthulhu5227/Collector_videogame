@@ -10,6 +10,7 @@ func _ready():
 		var function_access = func load_level(): 
 			load(level_scene)
 			get_tree().change_scene_to_file(level_scene)
+			Inventory.lose_teeth()
 			Ui.visible = true
 		clone.connect("pressed", function_access)
 		clone.visible = true
