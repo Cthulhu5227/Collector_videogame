@@ -8,11 +8,11 @@
 [ext_resource type="PackedScene" uid="uid://ffxtod7tc6mj" path="res://box.tscn" id="6_ilhis"]
 [ext_resource type="PackedScene" uid="uid://doyg3xf8tfm1n" path="res://window.tscn" id="7_ep78u"]
 
-[sub_resource type="Curve2D" id="Curve2D_ilhis"]
+[sub_resource type="Curve2D" id="Curve2D_ep78u"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, 464.18176, 23.545425)
+"points": PackedVector2Array(0, 0, 0, 0, 446, -2, 0, 0, 0, 0, 30, 3)
 }
-point_count = 1
+point_count = 2
 
 [node name="Level" type="Node2D"]
 
@@ -29,13 +29,12 @@ tile_map_data = PackedByteArray("AAD4//r/AAAAAAAAAAD4//v/AAAAAAAAAAD4//z/AAAAAAA
 [node name="box" parent="." instance=ExtResource("6_ilhis")]
 position = Vector2(299, 135)
 
-[node name="Path2D" type="Path2D" parent="."]
-position = Vector2(-22.181763, 218.45457)
-curve = SubResource("Curve2D_ilhis")
-
-[node name="parent" parent="Path2D" instance=ExtResource("3_ep78u")]
-position = Vector2(464.18176, 23.545425)
-rotation = -2.4168932
-
 [node name="window" parent="." instance=ExtResource("7_ep78u")]
 position = Vector2(-107, -17)
+
+[node name="Path2D" type="Path2D" parent="."]
+curve = SubResource("Curve2D_ep78u")
+
+[node name="enemy" parent="Path2D" instance=ExtResource("3_ep78u")]
+position = Vector2(446, -2)
+rotation = 3.129574
