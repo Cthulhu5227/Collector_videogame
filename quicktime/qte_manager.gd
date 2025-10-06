@@ -10,7 +10,7 @@ func init(qte_type, qte_diff):
 		0:
 			call_other_script("res://quicktime/qte_catch.gd", qte_diff,[$Timer_Bar, $Catch_Bead, $QTE_Instr_Label, $QTE_Input_Label, $QTE_Container])
 		1:
-			call_other_script("res://quicktime/qte_match.gd", qte_diff, [$Timer, $Timer_Bar, $QTE_Instr_Label, $QTE_Input_Label, $QTE_Container])
+			call_other_script("res://quicktime/qte_match.gd", qte_diff, [$Timer, $Timer_Bar, $QTE_Instr_Label, $QTE_Match_Label, $QTE_Container, $Input_Container, $Match_Container])
 		2:
 			call_other_script("res://quicktime/qte_mash.gd", qte_diff,  [$Timer_Bar, $QTE_Instr_Label, $QTE_Input_Label, $QTE_Container])
 		3:

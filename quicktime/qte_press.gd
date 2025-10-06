@@ -8,7 +8,6 @@ var instruction_label
 var input_label
 var container_background
 
-
 # timer bar stuff
 var total_quantity = 0
 var total_duration := 0
@@ -61,6 +60,7 @@ func _process(_delta):
 	
 func _on_timer_timeout():
 	if qte_instance_active:
+		stun()
 		cur_progress = 0
 		cur_input = OS.find_keycode_from_string(press_input[cur_progress])
 		_update_input_label()
@@ -90,7 +90,7 @@ func _input(event):
 func _update_input_label():
 	var display_str = ""
 	display_str += "[color=gray]%s[/color] " % press_input[cur_progress] 
-	input_label.bbcode_text = "[center]%s[/center]" % display_str
+	input_label.bbcode_text = "[center]%s[/center]" % display_str.strip_edges()
 
 func stun():
 	instruction_label.bbcode_text = "[center][color=yellow]Darn![/color][/center]"

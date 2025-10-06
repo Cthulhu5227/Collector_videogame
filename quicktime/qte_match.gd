@@ -6,6 +6,7 @@ var timer
 var timer_bar
 var instruction_label
 var input_label
+var container_background
 
 # timer bar stuff
 var total_duration := 0
@@ -37,7 +38,13 @@ func initialize(duration: int , node_refs):
 	timer_bar = node_refs[1]
 	instruction_label = node_refs[2]
 	input_label = node_refs[3]
-		
+	container_background = node_refs[4]
+	
+	var square_cont = node_refs[5]
+	var match_cont = node_refs[6]
+	square_cont.visible = false
+	match_cont.visible = true
+	
 	# set up timer
 	timer.connect("timeout", Callable(self, "_on_timer_timeout"))
 	total_duration = duration
@@ -63,6 +70,7 @@ func _process(_delta):
 	
 func _on_timer_timeout():
 	if qte_instance_active:
+		stun()
 		cur_progress = 0
 		cur_input = input_map.get(match_input[cur_progress], Key.KEY_SPACE)
 		_update_input_label()
@@ -75,7 +83,8 @@ func _input(event):
 			if (event.keycode == cur_input): 
 				cur_progress += 1
 			else: 
-				timer.start() # maybe dont have timer reset as a further punishment for getting it wrong
+				stun()
+				timer.start()
 				cur_progress = 0
 			_update_input_label()
 		
@@ -96,3 +105,18 @@ func _update_input_label():
 			display_str += "[color=white]%s[/color]   " % arrow
 
 	input_label.bbcode_text = "[center]%s[/center]" % display_str
+
+func stun():
+	instruction_label.bbcode_text = "[center][color=yellow]Darn![/color][/center]"
+	container_background.color = Color(0.424, 0.0, 0.02, 1.0)
+	qte_instance_active = false
+	timer.start()
+	timer.stop()
+	await get_tree().create_timer(1.0).timeout
+	instruction_label.bbcode_text = "[center][color=white]Match![/color][/center]"
+	container_background.color = Color(0.306, 0.0, 0.306, 1.0)
+	qte_instance_active = true
+	match_input = get_parent().get_random_subset(inputs_possible, total_duration)
+	_update_input_label()
+	timer.start()
+	return

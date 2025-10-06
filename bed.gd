@@ -29,8 +29,9 @@ func interact():
 
 func make_quicktime():
 	qte_type = randi_range(0,3)
-	qte_type = 3
-	qte_diff = 3
+	qte_type = 1
+	qte_diff = 6
 	var qte_instance = quicktime_event.instantiate()
+	qte_instance.position.x -= 150
 	add_child(qte_instance)
 	qte_instance.init(qte_type, qte_diff)
