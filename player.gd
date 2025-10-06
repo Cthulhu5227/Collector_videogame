@@ -73,8 +73,8 @@ func _physics_process(delta):
 				tutorial.visible = true 
 				break
 			tutorial.visible = false
-			 
-	move_and_collide(velocity * delta)
+	if not cripple:
+		move_and_collide(velocity * delta)
 	$AnimationPlayer.play("oscilate")
 
 
